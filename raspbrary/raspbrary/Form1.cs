@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Forms;
 namespace raspbrary
 {
-    public partial class Form1 : MetroForm
+    public partial class Form1 : Form
     {
         public Form1()
         {

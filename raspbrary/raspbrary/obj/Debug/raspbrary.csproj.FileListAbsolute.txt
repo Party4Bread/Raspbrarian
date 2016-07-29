@@ -20,3 +20,6 @@ C:\Users\Sunrin\Documents\Visual Studio 2012\Projects\raspbrary\raspbrary\obj\De
 C:\Users\Sunrin\Documents\Visual Studio 2012\Projects\raspbrary\raspbrary\bin\Debug\MetroFramework.Design.dll
 C:\Users\Sunrin\Documents\Visual Studio 2012\Projects\raspbrary\raspbrary\bin\Debug\MetroFramework.dll
 C:\Users\Sunrin\Documents\Visual Studio 2012\Projects\raspbrary\raspbrary\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
+C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
+C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
