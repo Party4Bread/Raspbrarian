@@ -23,6 +23,6 @@ C:\Users\Sunrin\Documents\Visual Studio 2012\Projects\raspbrary\raspbrary\bin\De
 C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
 C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
 C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
-C:\Users\BREADY\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
-C:\Users\BREADY\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
-C:\Users\BREADY\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
+H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
+H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
