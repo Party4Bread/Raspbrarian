@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace raspbrary
 {
@@ -16,7 +17,10 @@ namespace raspbrary
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            starter start = new starter();
+            start.StartPosition = FormStartPosition.Manual;
+            start.Location = new Point(0, 0);
+            Application.Run(start);
         }
     }
 }

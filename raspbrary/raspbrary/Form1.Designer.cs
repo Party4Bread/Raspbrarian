@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -43,12 +41,6 @@
             this.panel1.Size = new System.Drawing.Size(244, 422);
             this.panel1.TabIndex = 3;
             this.panel1.UseVisualStyleBackColor = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // button2
             // 
@@ -71,6 +63,7 @@
             this.button1.Size = new System.Drawing.Size(244, 422);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -90,6 +83,7 @@
             this.Padding = new System.Windows.Forms.Padding(26, 80, 26, 27);
             this.Text = "Rasprarian";
             this.TransparencyKey = System.Drawing.Color.Aqua;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -99,7 +93,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button panel1;
-        private System.Windows.Forms.ImageList imageList1;
 
     }
 }
