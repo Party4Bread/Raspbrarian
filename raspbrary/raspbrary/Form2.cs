@@ -15,6 +15,7 @@ namespace raspbrary
         public Form2()
         {
             InitializeComponent();
+            lblAuthor.Text = "";
         }
 
         private void label2_Click(object sender, EventArgs e)
