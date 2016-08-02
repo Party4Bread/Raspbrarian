@@ -1,9 +1,0 @@
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\bin\Debug\GetinfoTest.exe.config
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\bin\Debug\GetinfoTest.exe
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\bin\Debug\GetinfoTest.pdb
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.csprojResolveAssemblyReference.cache
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.Form1.resources
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.Properties.Resources.resources
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.csproj.GenerateResource.Cache
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.exe
-c:\users\gloveman\documents\visual studio 2015\Projects\GetinfoTest\GetinfoTest\obj\Debug\GetinfoTest.pdb
