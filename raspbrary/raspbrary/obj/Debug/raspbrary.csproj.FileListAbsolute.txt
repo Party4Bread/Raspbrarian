@@ -48,3 +48,15 @@ H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\De
 C:\Users\BREADY\Downloads\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
 C:\Users\BREADY\Downloads\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
 C:\Users\BREADY\Downloads\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-e37d8a3d16fd0a8f0f618adeb9d8e34dc92c1239\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csprojResolveAssemblyReference.cache
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form1.resources
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form2.resources
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form3.resources
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Properties.Resources.resources
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.starter.resources
+C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csproj.GenerateResource.Cache

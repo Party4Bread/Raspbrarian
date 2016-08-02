@@ -16,7 +16,7 @@ namespace raspbrary
     {
         string[] url = { "http://cafeptthumb4.phinf.naver.net/20140206_205/zpdl92_1391649626552SIpGd_JPEG/x9788996957652.jpg?type=w740", "http://bimage.interpark.com/goods_image/5/9/1/8/212675918g.jpg","http://bimage.interpark.com/milti/renewPark/main/102563_201607291504118231.jpg" };
       
-            public Form1()
+        public Form1()
         {
             InitializeComponent();
            
@@ -47,7 +47,11 @@ namespace raspbrary
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form3 frm3 = new Form3();
+            frm3.StartPosition = FormStartPosition.Manual;
+            frm3.Location = new Point(0, 0);
+            frm3.Show();
+            Dispose();
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -55,7 +59,7 @@ namespace raspbrary
 
         }
 
-        public Bitmap BitmapFromURL(string URL)
+        public static Bitmap BitmapFromURL(string URL)
         {
             try
             {

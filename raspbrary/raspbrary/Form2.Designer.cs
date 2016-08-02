@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.STB1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblAuthor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listBooks = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.lblAuthor = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // STB1
@@ -52,19 +55,6 @@
             this.STB1.Size = new System.Drawing.Size(550, 55);
             this.STB1.TabIndex = 0;
             this.STB1.Text = "검색창";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnSearch.BackgroundImage = global::raspbrary.Properties.Resources.search_book;
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnSearch.Image = global::raspbrary.Properties.Resources.search_book;
-            this.btnSearch.Location = new System.Drawing.Point(670, 0);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(130, 55);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -95,6 +85,16 @@
             this.panel2.Size = new System.Drawing.Size(800, 50);
             this.panel2.TabIndex = 4;
             // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("나눔바른고딕", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblAuthor.Location = new System.Drawing.Point(118, 5);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(225, 42);
+            this.lblAuthor.TabIndex = 1;
+            this.lblAuthor.Text = "(저자명 표시)";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -109,10 +109,32 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Aqua;
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(0, 175);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(575, 68);
+            this.panel3.Size = new System.Drawing.Size(575, 45);
             this.panel3.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(128, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(258, 42);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "(출판사명 표시)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(9, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 42);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "출판사:";
             // 
             // comboBox1
             // 
@@ -158,15 +180,18 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lblAuthor
+            // btnSearch
             // 
-            this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Font = new System.Drawing.Font("나눔바른고딕", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblAuthor.Location = new System.Drawing.Point(118, 5);
-            this.lblAuthor.Name = "lblAuthor";
-            this.lblAuthor.Size = new System.Drawing.Size(225, 42);
-            this.lblAuthor.TabIndex = 1;
-            this.lblAuthor.Text = "(저자명 표시)";
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSearch.BackgroundImage = global::raspbrary.Properties.Resources.search_book;
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSearch.Image = global::raspbrary.Properties.Resources.search_book;
+            this.btnSearch.Location = new System.Drawing.Point(670, 0);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(130, 55);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // Form2
             // 
@@ -190,6 +215,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +236,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
