@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
@@ -37,24 +38,21 @@ namespace Rasbrary.uni
         string[] book;
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            await getResponse(textBlock.Text);
+            await getResponse(textBox.Text);
             if ("nope" != book[0])
             {
                 textBox1.Text = book[0];
                 textBox2.Text = book[1];
                 textBox3.Text = book[2];
-                /*Bitmap result = new Bitmap(181, 235);
-                using (Graphics g = Graphics.FromImage(result))
-                    g.DrawImage(Form1.BitmapFromURL(info[3]), 0, 0, 181, 235);
-                pictureBox1.Image = result;*/
+                image2.Source = new BitmapImage(new Uri(book[3], UriKind.Absolute));
             }
             else
             {
-                //var dialog = new MessageDialog("책을 수동 등록 해야 해!");
-                //await dialog.ShowAsync();
+                var dialog = new MessageDialog("책을 수동 등록 해야 해!");
+                await dialog.ShowAsync();
             }
-        }        
-        private async Task getResponse(string isbn)
+        }
+        private async Task getResponse(string isbn)//Task.run() 으로 동기명령수행
         {
             string URL = "https://openapi.naver.com/v1/search/book.xml",
             clientId = "0WW6gMJM8FBWvjfjBEeD",
@@ -69,14 +67,14 @@ namespace Rasbrary.uni
                 wReq.Headers["X-Naver-Client-Id"] = clientId;
                 wReq.Headers["X-Naver-Client-Secret"] = clientpassword;
                 using (wRes = await wReq.GetResponseAsync())
-                {
+                {                   
                     Stream respPostStream = wRes.GetResponseStream();
-                    StreamReader readerPost = new StreamReader(respPostStream, Encoding.GetEncoding("EUC-KR"), true);
+                    StreamReader readerPost = new StreamReader(respPostStream, Encoding.GetEncoding("UTF-8"), true);
                     string response = readerPost.ReadToEnd();
                     try
                     {
-                        //9788952210043
-                        XDocument xd = XDocument.Parse(response);
+                        //9788952210043s
+                        XDocument xd = XDocument.Parse(response);                        
                         XElement title = xd.Root.Element("channel").Element("item").Element("title");
                         XElement author = xd.Root.Element("channel").Element("item").Element("author");
                         XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
@@ -105,6 +103,20 @@ namespace Rasbrary.uni
                 {                    
                 }
             }            
+        }
+        private void textBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            textBox.Text = "";
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(mainFrm));
         }
     }
 }

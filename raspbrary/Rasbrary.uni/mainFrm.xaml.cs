@@ -34,5 +34,15 @@ namespace Rasbrary.uni
         {
             Frame.Navigate(typeof(regFrm));
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(settingFrm));
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

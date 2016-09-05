@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Loaded="Page_Loaded">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480">
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
         <Button x:Name="btn_sch" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="460" Width="256" Click="btn_sch_Click">
             <Button.Background>
                 <ImageBrush Stretch="Fill" ImageSource="Assets/search.png"/>
@@ -20,5 +20,6 @@
         </Button>
         <Image x:Name="image" HorizontalAlignment="Left" Height="427" Margin="533,43,0,0" VerticalAlignment="Top" Width="257" Source="temprec.png"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="580,10,0,0" TextWrapping="Wrap" Text="&lt;오늘의 추천책&gt;" VerticalAlignment="Top" FontSize="21"/>
+        <Button x:Name="button_set" Content="설정" HorizontalAlignment="Left" Margin="748,0,0,448" VerticalAlignment="Stretch" Width="52" Click="button_Click"/>
     </Grid>
 </Page>

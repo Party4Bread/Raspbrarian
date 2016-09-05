@@ -28,6 +28,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -95,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Book.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="mainFrm.xaml.cs">
       <DependentUpon>mainFrm.xaml</DependentUpon>
@@ -104,6 +106,9 @@
     </Compile>
     <Compile Include="schFrm.xaml.cs">
       <DependentUpon>schFrm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="settingFrm.xaml.cs">
+      <DependentUpon>settingFrm.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="schFrm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="settingFrm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

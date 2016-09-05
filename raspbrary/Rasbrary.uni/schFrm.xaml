@@ -23,6 +23,6 @@
         </TextBlock>
         <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="39" Margin="0,138,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="29"/>
-        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0" Grid.Row="1" Click="button1_Click"/>
+        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0" Grid.Row="1" Click="button1_Click" Height="32"/>
     </Grid>
 </Page>
