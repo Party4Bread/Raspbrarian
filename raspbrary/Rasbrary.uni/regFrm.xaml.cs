@@ -111,7 +111,8 @@ namespace Rasbrary.uni
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            DB.Insert(textBox.Text,textBox1.Text,textBox2.Text,textBox3.Text,int.Parse(textBox4.Text),
+                int.Parse(textBox5.Text),book[3]);
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)

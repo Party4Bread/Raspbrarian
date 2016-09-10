@@ -22,7 +22,8 @@ namespace Rasbrary.uni
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {       
+        {
+            DB.conn.CreateTable<Book>();
         }
 
         private void btn_sch_Click(object sender, RoutedEventArgs e)

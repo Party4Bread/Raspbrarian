@@ -63,3 +63,6 @@ C:\Users\BREADY\Documents\GitHub\ss\Raspbrarian\raspbrary\raspbrary\obj\Debug\ra
 C:\Users\BREADY\Documents\Projects\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
 C:\Users\BREADY\Documents\Projects\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
 C:\Users\BREADY\Documents\Projects\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
+C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
+C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
