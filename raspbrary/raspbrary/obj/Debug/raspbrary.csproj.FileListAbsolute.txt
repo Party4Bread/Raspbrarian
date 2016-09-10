@@ -66,3 +66,15 @@ C:\Users\BREADY\Documents\Projects\Raspbrarian\raspbrary\raspbrary\obj\Debug\ras
 C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
 C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
 C:\Users\solsa\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.pdb
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csprojResolveAssemblyReference.cache
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form1.resources
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form2.resources
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form3.resources
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Properties.Resources.resources
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.starter.resources
+C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csproj.GenerateResource.Cache

@@ -23,8 +23,46 @@ namespace Rasbrary.uni
         public static string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
         public static SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new
             SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            
-        
+
+        public static List<Book> FindbyName(string name)
+        {
+            var query = conn.Table<Book>();
+            List<Book> L = new List<Book>();
+            foreach (var message in query)
+            {
+                if(message.Name.IndexOf(name)!=-1)
+                {
+                    L.Add(message);
+                }
+            }
+            return L;
+        }
+        public static List<Book> FindbyAuther(string aut)
+        {
+            var query = conn.Table<Book>();
+            List<Book> L = new List<Book>();
+            foreach (var message in query)
+            {
+                if (message.Auther.IndexOf(aut) != -1)
+                {
+                    L.Add(message);
+                }
+            }
+            return L;
+        }
+        public static List<Book> FindbyPublisher(string pub)
+        {
+            var query = conn.Table<Book>();
+            List<Book> L = new List<Book>();
+            foreach (var message in query)
+            {
+                if (message.Publisher.IndexOf(pub) != -1)
+                {
+                    L.Add(message);
+                }
+            }
+            return L;
+        }
         public static void Insert(string isbn,string name,string aut, string pub, int x,int y,string imgsrc)
         { 
             conn.Insert(new Book()

@@ -5,17 +5,22 @@
     xmlns:local="using:Rasbrary.uni"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="800" Height="480">
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480">
         <Grid.RowDefinitions>
             <RowDefinition Height="149*"/>
             <RowDefinition Height="91*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Height="66" FontSize="36"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="66" Width="591" FontSize="36" Background="White"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Height="66" FontSize="36">
+            <ComboBoxItem Content="제목"/>
+            <ComboBoxItem Content="저자" />
+            <ComboBoxItem Content="출판사"/>
+        </ComboBox>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="66" Width="591" FontSize="36" Background="White" TextChanged="textBox_TextChanged"/>
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,0,0,0" Height="66" Width="86" Click="button_Click"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="303" Margin="575,177,0,0" VerticalAlignment="Top" Width="225" Grid.RowSpan="2"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="303" Margin="0,177,0,0" VerticalAlignment="Top" Width="599" Grid.RowSpan="2" SelectionChanged="listBox_SelectionChanged"/>
         <Rectangle HorizontalAlignment="Left" Height="72" Margin="0,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="{ThemeResource JumpListDefaultEnabledBackground}" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="704" FontSize="48" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
         	<Run Text="책제목"/>
@@ -24,5 +29,6 @@
         <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="39" Margin="0,138,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="29"/>
         <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0" Grid.Row="1" Click="button1_Click" Height="32"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="303" Margin="599,177,0,0" VerticalAlignment="Top" Width="201" Grid.RowSpan="2"/>
     </Grid>
 </Page>

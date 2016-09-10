@@ -5,7 +5,8 @@
     xmlns:local="using:Rasbrary.uni"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="800" Height="480">
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="348" FontSize="48"/>

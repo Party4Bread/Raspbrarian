@@ -5,7 +5,8 @@
     xmlns:local="using:Rasbrary.uni"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Loaded="Page_Loaded">
+    mc:Ignorable="d" Loaded="Page_Loaded"
+    Width="800" Height="480">
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
         <Button x:Name="btn_sch" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="460" Width="256" Click="btn_sch_Click">
