@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Popups;
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
 namespace Rasbrary.uni
@@ -17,6 +17,8 @@ namespace Rasbrary.uni
         System.Collections.Generic.List<Book> currentlist = new System.Collections.Generic.List<Book>();
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            listBox.Items.Clear();
+            
             switch (comboBox.SelectedIndex)
             {
                 case 0:
@@ -49,10 +51,26 @@ namespace Rasbrary.uni
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            textBlock.Text = "책제목:" + currentlist[listBox.SelectedIndex].Name;
-            textBlock1.Text = "저자명:" + currentlist[listBox.SelectedIndex].Auther;
-            image.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new System.Uri(currentlist[listBox.SelectedIndex].image, System.UriKind.Absolute));
+
+            if (currentlist.Count != 0)
+            {
+                if (listBox.SelectedIndex <= currentlist.Count)
+                {
+                    if (listBox.SelectedIndex != -1)
+                    {
+                        textBlock.Text = "책제목:" + currentlist[listBox.SelectedIndex].Name;
+                        textBlock1.Text = "저자명:" + currentlist[listBox.SelectedIndex].Auther;
+                        image.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new System.Uri(currentlist[listBox.SelectedIndex].image, System.UriKind.Absolute));
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                }
+            }
         }
+
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {

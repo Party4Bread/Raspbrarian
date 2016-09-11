@@ -109,15 +109,26 @@ namespace Rasbrary.uni
             textBox.Text = "";
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            DB.Insert(textBox.Text,textBox1.Text,textBox2.Text,textBox3.Text,int.Parse(textBox4.Text),
-                int.Parse(textBox5.Text),book[3]);
-        }
+        
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(mainFrm));
+        }
+        private async void confirm(object sender, RoutedEventArgs e)
+        {
+            var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
+            dialog.Commands.Add(new UICommand("OK", new UICommandInvokedHandler(checkresponse)));
+            dialog.Commands.Add(new UICommand("Cancel", new UICommandInvokedHandler(checkresponse)));
+            await dialog.ShowAsync();
+        }
+        private void checkresponse(IUICommand command)
+        {
+            if (command.Label == "OK")
+                DB.Insert(textBox.Text, textBox1.Text, textBox2.Text, textBox3.Text, int.Parse(textBox4.Text),
+                int.Parse(textBox5.Text), book[3]);
+
+
         }
     }
 }

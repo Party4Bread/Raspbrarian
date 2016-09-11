@@ -22,7 +22,7 @@
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,0,0,0" Height="66" Width="86" Click="button_Click"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="303" Margin="0,177,0,0" VerticalAlignment="Top" Width="599" Grid.RowSpan="2" SelectionChanged="listBox_SelectionChanged"/>
         <Rectangle HorizontalAlignment="Left" Height="72" Margin="0,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="{ThemeResource JumpListDefaultEnabledBackground}" StrokeThickness="0"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="704" FontSize="48" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="780" FontSize="44" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
         	<Run Text="책제목"/>
         	<Run Text=":"/>
         </TextBlock>

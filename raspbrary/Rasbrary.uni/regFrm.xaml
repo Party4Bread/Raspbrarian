@@ -17,7 +17,7 @@
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="112,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Height="40" Width="520"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,171,0,0" TextWrapping="Wrap" Text="출판사:" VerticalAlignment="Top" FontSize="30" Height="40"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="112,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Height="40" Width="520"/>
-        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="637,81,0,0" VerticalAlignment="Top" Height="399" Width="163" Click="button1_Click"/>
+        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="637,81,0,0" VerticalAlignment="Top" Height="399" Width="163" Click="confirm"/>
         <Image x:Name="image2" HorizontalAlignment="Left" Height="254" Margin="10,216,0,0" VerticalAlignment="Top" Width="158"/>
         <Button x:Name="button2" Content="back" HorizontalAlignment="Stretch" Margin="0,448,748,0" VerticalAlignment="Top" Height="32" Click="button2_Click"/>
         <TextBox x:Name="textBox4" HorizontalAlignment="Left" Margin="173,216,0,0" TextWrapping="Wrap" Text="x" VerticalAlignment="Top"/>
