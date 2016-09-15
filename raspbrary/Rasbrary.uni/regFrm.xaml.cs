@@ -48,8 +48,7 @@ namespace Rasbrary.uni
             }
             else
             {
-                var dialog = new MessageDialog("책을 수동 등록 해야 해!");
-                await dialog.ShowAsync();
+                Function.ShowMessage("책을 수동 등록 해야 해!");
             }
         }
         private async Task getResponse(string isbn)//Task.run() 으로 동기명령수행
@@ -117,17 +116,28 @@ namespace Rasbrary.uni
         }
         private async void confirm(object sender, RoutedEventArgs e)
         {
-            var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
-            dialog.Commands.Add(new UICommand("OK", new UICommandInvokedHandler(checkresponse)));
-            dialog.Commands.Add(new UICommand("Cancel", new UICommandInvokedHandler(checkresponse)));
-            await dialog.ShowAsync();
+            if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
+            {
+                var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
+                dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(checkresponse)));
+                dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(checkresponse)));
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                Function.ShowMessage("책 정보가 확인되지 않습니다.");
+            }
         }
         private void checkresponse(IUICommand command)
         {
-            if (command.Label == "OK")
-                DB.Insert(textBox.Text, textBox1.Text, textBox2.Text, textBox3.Text, int.Parse(textBox4.Text),
-                int.Parse(textBox5.Text), book[3]);
-
+            if (command.Label == "확인")
+            {
+                Frame.Navigate(typeof(BookLocation));
+                Function.SetPageName("책 자리 정하기");
+                Data.SetBook(new Book() {Name=book[0],Auther=book[1],Publisher=book[2],image=book[3]});
+               
+                
+            }
 
         }
     }

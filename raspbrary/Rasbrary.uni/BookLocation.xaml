@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Rasbrary.uni.BookLocation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Rasbrary.uni"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="800"
+    Height="480" Loaded="Page_Loaded">
+
+    <Grid Background="Gray" Width="800" Height="480">
+        
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="책 자리표"  VerticalAlignment="Top" FontSize="36" />
+        <Button x:Name="btnConfirm" Content="확인" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" Width="120" Height="50" RenderTransformOrigin="0.411,0.507" FontSize="20" Click="btnConfirm_Click" Background="#33000000"/>
+        <Button x:Name="btnexit" Content="닫기" HorizontalAlignment="Left" Margin="150,400,0,0" VerticalAlignment="Top" Width="120" Height="50" FontSize="20" Click="btnexit_Click"/>
+        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="280,50,0,0" VerticalAlignment="Top" Width="500" Height="400" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True">
+        </GridView>
+        <TextBlock x:Name="txtX" HorizontalAlignment="Left" Margin="10,161,0,0" TextWrapping="Wrap" Text="행:"  VerticalAlignment="Top" FontSize="36" />
+        <TextBlock x:Name="txtY" HorizontalAlignment="Left" Margin="10,274,0,0" TextWrapping="Wrap" Text="열:"  VerticalAlignment="Top" FontSize="36" />
+    </Grid>
+</Page>

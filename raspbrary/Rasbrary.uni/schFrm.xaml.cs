@@ -17,26 +17,35 @@ namespace Rasbrary.uni
         System.Collections.Generic.List<Book> currentlist = new System.Collections.Generic.List<Book>();
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            listBox.Items.Clear();
-            
-            switch (comboBox.SelectedIndex)
+            if (textBox.Text != "")
             {
-                case 0:
-                    currentlist = DB.FindbyName(textBox.Text);
-                    foreach (var g in currentlist)
-                        listBox.Items.Add(g.Name);
-                    break;
-                case 1:
-                    currentlist = DB.FindbyAuther(textBox.Text);
-                    foreach (var g in currentlist)
-                        listBox.Items.Add(g.Name);
-                    break;
-                case 2:
-                    currentlist = DB.FindbyPublisher(textBox.Text);
-                    foreach (var g in currentlist)
-                        listBox.Items.Add(g.Name);
-                    break;
+                if (comboBox.SelectionBoxItem != null)
+                {
+                    listBox.Items.Clear();
+                    switch (comboBox.SelectedIndex)
+                    {
+                        case 0:
+                            currentlist = DB.FindbyName(textBox.Text);
+                            foreach (var g in currentlist)
+                                listBox.Items.Add(g.Name);
+                            break;
+                        case 1:
+                            currentlist = DB.FindbyAuther(textBox.Text);
+                            foreach (var g in currentlist)
+                                listBox.Items.Add(g.Name);
+                            break;
+                        case 2:
+                            currentlist = DB.FindbyPublisher(textBox.Text);
+                            foreach (var g in currentlist)
+                                listBox.Items.Add(g.Name);
+                            break;
+                    }
+                }
+                else
+                    Function.ShowMessage("검색 조건을 선택하세요!");
             }
+            else
+                Function.ShowMessage("키워드를 입력하세요.");
         }
 
         private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -72,9 +81,16 @@ namespace Rasbrary.uni
         }
 
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+      
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(BookLocation));
+            Function.SetPageName("책 자리 보기");
+            Data.SetBook(currentlist[listBox.SelectedIndex]);
         }
+
+     
+           
     }
 }

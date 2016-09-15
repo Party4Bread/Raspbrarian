@@ -18,7 +18,7 @@
             <ComboBoxItem Content="저자" />
             <ComboBoxItem Content="출판사"/>
         </ComboBox>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="66" Width="591" FontSize="36" Background="White" TextChanged="textBox_TextChanged"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="66" Width="591" FontSize="36" Background="White" />
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,0,0,0" Height="66" Width="86" Click="button_Click"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="303" Margin="0,177,0,0" VerticalAlignment="Top" Width="599" Grid.RowSpan="2" SelectionChanged="listBox_SelectionChanged"/>
         <Rectangle HorizontalAlignment="Left" Height="72" Margin="0,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" Fill="{ThemeResource JumpListDefaultEnabledBackground}" StrokeThickness="0"/>
@@ -29,6 +29,7 @@
         <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="39" Margin="0,138,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="29"/>
         <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0" Grid.Row="1" Click="button1_Click" Height="32"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="303" Margin="599,177,0,0" VerticalAlignment="Top" Width="201" Grid.RowSpan="2"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="250" Margin="599,177,0,0" VerticalAlignment="Top" Width="201" Grid.RowSpan="2"/>
+        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Left" Margin="608,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="48" Width="186" Click="button2_Click"/>
     </Grid>
 </Page>

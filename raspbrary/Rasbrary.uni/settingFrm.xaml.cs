@@ -64,9 +64,9 @@ namespace Rasbrary.uni
             using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
                 Stream s = writeStream.AsStreamForWrite();
-                System.Xml.XmlWriterSettings settings = new System.Xml.XmlWriterSettings();
+                System.Xml.XmlWriterSettings settings = new XmlWriterSettings();
                 settings.Async = true;
-                using (System.Xml.XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
+                using (XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
                 {
                     writer.WriteStartElement("sheet");
                     writer.WriteElementString("Row", textBox.Text);
@@ -75,8 +75,7 @@ namespace Rasbrary.uni
                     await writer.FlushAsync();
                 }
             }
-            var dialog = new MessageDialog("변경완료!");
-            await dialog.ShowAsync();
+            Function.ShowMessage("변경 완료!");
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -116,12 +115,12 @@ namespace Rasbrary.uni
                     Stream s = writeStream.AsStreamForWrite();
                     System.Xml.XmlWriterSettings settings = new System.Xml.XmlWriterSettings();
                     settings.Async = true;
-                    using (System.Xml.XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
+                    using (XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
                     {
                         writer.WriteStartElement("sheet");
                         writer.WriteElementString("Row", "1");
                         writer.WriteElementString("Line", "1");
-                        writer.Flush();
+                        writer.Flush(); 
                         await writer.FlushAsync();
                     }
                 }

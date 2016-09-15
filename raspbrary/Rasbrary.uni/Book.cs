@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace Rasbrary.uni
 {
@@ -18,10 +19,12 @@ namespace Rasbrary.uni
         public int y { get; set; }
         public string image { get; set; }
     }
+   
+
     class DB
     {
         public static string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
-        public static SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new
+        public static SQLiteConnection conn = new SQLiteConnection(new
             SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
 
         public static List<Book> FindbyName(string name)
@@ -76,6 +79,41 @@ namespace Rasbrary.uni
                 y=y
             });
         }
+        public static void Insert(Book newbook)
+        {
+            conn.Insert(newbook);
+        } 
         
+    }
+    class Function
+    {
+        private static string BookLocationPageName;
+        
+        public async static void ShowMessage(string Message)
+        {
+            var dialog = new MessageDialog(Message);
+            await dialog.ShowAsync();
+        }
+       public static void SetPageName(string Name)
+        {
+            BookLocationPageName = Name;
+        }
+        public static string GetPageName()
+        {
+            return BookLocationPageName;
+        }
+      
+    }
+    class Data
+    {
+        public static Book currbook;
+        public static Book GetBook()
+        {
+            return currbook;
+        }
+        public static void SetBook(Book book)
+        {
+            currbook = book;
+        }
     }
 }
