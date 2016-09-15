@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Width="800" Height="480">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480">
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="48" Width="637" DoubleTapped="textBox_DoubleTapped"/>
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" Margin="637,0,0,0" VerticalAlignment="Top" Height="76" Width="163" Click="button_Click"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="30" Height="40"/>

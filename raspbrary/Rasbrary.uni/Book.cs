@@ -66,6 +66,19 @@ namespace Rasbrary.uni
             }
             return L;
         }
+        public static List<Book> Findbyisbn(string isbn)
+        {
+            var query = conn.Table<Book>();
+            List<Book> L = new List<Book>();
+            foreach (var message in query)
+            {
+                if (message.ISBN==isbn)
+                {
+                    L.Add(message);
+                }
+            }
+            return L;
+        }
         public static void Insert(string isbn,string name,string aut, string pub, int x,int y,string imgsrc)
         { 
             conn.Insert(new Book()

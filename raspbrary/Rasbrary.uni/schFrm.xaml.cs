@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Popups;
+using Windows.ApplicationModel.Core;
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
 namespace Rasbrary.uni
@@ -39,7 +40,13 @@ namespace Rasbrary.uni
                             foreach (var g in currentlist)
                                 listBox.Items.Add(g.Name);
                             break;
+                        case 3:
+                            currentlist = DB.Findbyisbn(textBox.Text);
+                            foreach (var g in currentlist)
+                                listBox.Items.Add(g.Name);
+                            break;
                     }
+                    
                 }
                 else
                     Function.ShowMessage("검색 조건을 선택하세요!");
@@ -55,6 +62,7 @@ namespace Rasbrary.uni
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
         }
 
@@ -78,19 +86,67 @@ namespace Rasbrary.uni
 
                 }
             }
-        }
-
-
-      
+        }     
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            CoreApplication.Properties.Add("searchType",comboBox.SelectedIndex);
+            CoreApplication.Properties.Add("searchKey", textBox.Text);
+            CoreApplication.Properties.Add("selsch",listBox.SelectedIndex);
             Frame.Navigate(typeof(BookLocation));
             Function.SetPageName("책 자리 보기");
             Data.SetBook(currentlist[listBox.SelectedIndex]);
         }
 
-     
-           
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            object st, sk;
+            if(CoreApplication.Properties.TryGetValue("searchType",out st))
+            {
+                string type = st.ToString();
+                comboBox.SelectedIndex = int.Parse(type);
+                if (CoreApplication.Properties.TryGetValue("searchKey", out sk))
+                {
+                    textBox.Text = sk.ToString();
+                    if (textBox.Text != "")
+                    {
+                        if (comboBox.SelectionBoxItem != null)
+                        {
+                            listBox.Items.Clear();
+                            switch (comboBox.SelectedIndex)
+                            {
+                                case 0:
+                                    currentlist = DB.FindbyName(textBox.Text);
+                                    foreach (var g in currentlist)
+                                        listBox.Items.Add(g.Name);
+                                    break;
+                                case 1:
+                                    currentlist = DB.FindbyAuther(textBox.Text);
+                                    foreach (var g in currentlist)
+                                        listBox.Items.Add(g.Name);
+                                    break;
+                                case 2:
+                                    currentlist = DB.FindbyPublisher(textBox.Text);
+                                    foreach (var g in currentlist)
+                                        listBox.Items.Add(g.Name);
+                                    break;
+                                case 3:
+                                    currentlist = DB.Findbyisbn(textBox.Text);
+                                    foreach (var g in currentlist)
+                                        listBox.Items.Add(g.Name);
+                                    break;
+                            }
+                        }
+                        else
+                            Function.ShowMessage("검색 조건을 선택하세요!");
+                    }
+                    else
+                        Function.ShowMessage("키워드를 입력하세요.");
+                    object selc;
+                    if (CoreApplication.Properties.TryGetValue("selsch", out selc))
+                        listBox.SelectedIndex = int.Parse(selc.ToString());
+                }
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Width="800" Height="480">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480">
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="149*"/>
             <RowDefinition Height="91*"/>
@@ -17,6 +17,7 @@
             <ComboBoxItem Content="제목"/>
             <ComboBoxItem Content="저자" />
             <ComboBoxItem Content="출판사"/>
+            <ComboBoxItem Content="바코드"/>
         </ComboBox>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="66" Width="591" FontSize="36" Background="White" />
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="714,0,0,0" Height="66" Width="86" Click="button_Click"/>

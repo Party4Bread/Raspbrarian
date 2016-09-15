@@ -189,3 +189,5 @@ $RECYCLE.BIN/
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+raspbrary/raspbrary/raspbrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.txt

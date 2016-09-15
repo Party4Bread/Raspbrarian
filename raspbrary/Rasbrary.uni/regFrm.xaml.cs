@@ -10,6 +10,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -106,16 +107,15 @@ namespace Rasbrary.uni
         private void textBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             textBox.Text = "";
-        }
-
-        
-
+        }      
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
         }
         private async void confirm(object sender, RoutedEventArgs e)
         {
+            CoreApplication.Properties.Add("ISBN", textBox.Text);
             if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
             {
                 var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
@@ -134,11 +134,29 @@ namespace Rasbrary.uni
             {
                 Frame.Navigate(typeof(BookLocation));
                 Function.SetPageName("책 자리 정하기");
-                Data.SetBook(new Book() {Name=book[0],Auther=book[1],Publisher=book[2],image=book[3]});
-               
-                
+                Data.SetBook(new Book() {Name=book[0],Auther=book[1],ISBN=textBox.Text,Publisher=book[2],image=book[3]});             
             }
+        }
 
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            object isbn;
+            if (CoreApplication.Properties.TryGetValue("ISBN",out isbn))
+            {
+                textBox.Text = isbn.ToString();
+                await getResponse(textBox.Text);
+                if ("nope" != book[0])
+                {
+                    textBox1.Text = book[0];
+                    textBox2.Text = book[1];
+                    textBox3.Text = book[2];
+                    image2.Source = new BitmapImage(new Uri(book[3], UriKind.Absolute));
+                }
+                else
+                {
+                    Function.ShowMessage("책을 수동 등록 해야 해!");
+                }
+            }
         }
     }
 }
