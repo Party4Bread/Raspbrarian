@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using SQLite.Net.Attributes;
 
 namespace Rasbrary.uni
 {
@@ -23,10 +24,11 @@ namespace Rasbrary.uni
 
     class DB
     {
+        public static string src;
         public static string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
         public static SQLiteConnection conn = new SQLiteConnection(new
             SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-
+       
         public static List<Book> FindbyName(string name)
         {
             var query = conn.Table<Book>();
@@ -95,8 +97,33 @@ namespace Rasbrary.uni
         public static void Insert(Book newbook)
         {
             conn.Insert(newbook);
-        } 
-        
+        }
+        public static string ShowMainImage()
+        {
+            src = null;
+            var query = conn.Table<Book>();
+            string[] Imagesrc;
+            List<string> imagesrc = new List<string>();
+           
+            Random rd = new Random();
+            foreach (var book in query)
+            {
+                imagesrc.Add(book.image);
+            }
+            Imagesrc = imagesrc.ToArray();
+            src = (string)(Imagesrc.GetValue(rd.Next(1, Imagesrc.Length - 1)));
+            
+                return src;
+ 
+        }
+        public static bool HasMainImage()
+        {
+            if (src == null)
+                return false;
+            else
+                return true;
+        }
+
     }
     class Function
     {
@@ -128,5 +155,6 @@ namespace Rasbrary.uni
         {
             currbook = book;
         }
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Windows.Networking.BackgroundTransfer;
 using Windows.Security.Cryptography;
 using Windows.Storage;
@@ -6,6 +7,8 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.ApplicationModel.Core;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
@@ -23,12 +26,16 @@ namespace Rasbrary.uni
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+           
             DB.conn.CreateTable<Book>();
+
+       
+          
         }
 
         private void btn_sch_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(schFrm));
+           Frame.Navigate(typeof(schFrm));
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -44,6 +51,12 @@ namespace Rasbrary.uni
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
 
+            if (!DB.HasMainImage())
+            {
+                DB.src = DB.ShowMainImage();
+                
+            }
+                image.Source = new BitmapImage(new Uri(DB.src, UriKind.Absolute));
         }
     }
 }

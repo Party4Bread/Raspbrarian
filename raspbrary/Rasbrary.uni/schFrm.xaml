@@ -31,6 +31,7 @@
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,138,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="29"/>
         <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0" Grid.Row="1" Click="button1_Click" Height="32"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="250" Margin="599,177,0,0" VerticalAlignment="Top" Width="201" Grid.RowSpan="2"/>
-        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Left" Margin="608,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="48" Width="186" Click="button2_Click"/>
+        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="602,134,92,0" Grid.Row="1" VerticalAlignment="Top" Width="103" Height="48" Click="button2_Click"/>
+        <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="719,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="48" Width="77" Click="btndel_Click"/>
     </Grid>
 </Page>

@@ -2,6 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Popups;
 using Windows.ApplicationModel.Core;
+using SQLite.Net;
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
 namespace Rasbrary.uni
@@ -13,7 +14,7 @@ namespace Rasbrary.uni
     {
         public schFrm()
         {
-            this.InitializeComponent();
+           InitializeComponent();
         }
         System.Collections.Generic.List<Book> currentlist = new System.Collections.Generic.List<Book>();
         private void button_Click(object sender, RoutedEventArgs e)
@@ -78,6 +79,8 @@ namespace Rasbrary.uni
                         textBlock.Text = "책제목:" + currentlist[listBox.SelectedIndex].Name;
                         textBlock1.Text = "저자명:" + currentlist[listBox.SelectedIndex].Auther;
                         image.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new System.Uri(currentlist[listBox.SelectedIndex].image, System.UriKind.Absolute));
+                        if (currentlist[listBox.SelectedIndex].image == null)
+                            Function.ShowMessage("No Image");
                     }
                     else
                     {
@@ -90,6 +93,7 @@ namespace Rasbrary.uni
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            CoreApplication.Properties.Clear();
             CoreApplication.Properties.Add("searchType",comboBox.SelectedIndex);
             CoreApplication.Properties.Add("searchKey", textBox.Text);
             CoreApplication.Properties.Add("selsch",listBox.SelectedIndex);
@@ -147,6 +151,19 @@ namespace Rasbrary.uni
                         listBox.SelectedIndex = int.Parse(selc.ToString());
                 }
             }
+        }
+
+        private void btndel_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Book temp = currentlist[listBox.SelectedIndex];
+            listBox.Items.Clear();
+            string query = "DELETE FROM Book WHERE ISBN="+temp.ISBN+" and x="+temp.x+" and y="+temp.y;
+
+            DB.conn.Execute(query, new Book[1]);
+            currentlist.Remove(temp);
+            foreach (var g in currentlist)
+                listBox.Items.Add(g.Name);
         }
     }
 }
