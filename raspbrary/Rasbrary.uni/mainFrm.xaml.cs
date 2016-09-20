@@ -23,19 +23,16 @@ namespace Rasbrary.uni
         {
             this.InitializeComponent();
         }
-
+        Arduino head = new Arduino();
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-           
+        {           
             DB.conn.CreateTable<Book>();
-
-       
-          
+            head.connect();
         }
 
         private void btn_sch_Click(object sender, RoutedEventArgs e)
         {
-           Frame.Navigate(typeof(schFrm));
+            Frame.Navigate(typeof(schFrm));
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -53,10 +50,9 @@ namespace Rasbrary.uni
 
             if (!DB.HasMainImage())
             {
-                DB.src = DB.ShowMainImage();
-                
+                DB.src = DB.ShowMainImage();                
             }
-                image.Source = new BitmapImage(new Uri(DB.src, UriKind.Absolute));
+            image.Source = new BitmapImage(new Uri(DB.src, UriKind.Absolute));
         }
     }
 }
