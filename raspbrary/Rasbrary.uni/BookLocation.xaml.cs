@@ -44,7 +44,8 @@ namespace Rasbrary.uni
         } 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Book currbook = Data.GetBook();
+                Book currbook = Data.GetBook();
+            
             PageName =textBlock.Text = Function.GetPageName();
             if (PageName == "책 자리 정하기")
             {

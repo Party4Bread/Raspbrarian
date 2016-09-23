@@ -24,6 +24,7 @@ namespace Rasbrary.uni
                 if (comboBox.SelectionBoxItem != null)
                 {
                     listBox.Items.Clear();
+                    
                     switch (comboBox.SelectedIndex)
                     {
                         case 0:
@@ -53,7 +54,15 @@ namespace Rasbrary.uni
                     Function.ShowMessage("검색 조건을 선택하세요!");
             }
             else
-                Function.ShowMessage("키워드를 입력하세요.");
+            { 
+                Function.ShowMessage("키워드를 입력하세요.\r\n전체 목록을 표시합니다.");
+                var query = DB.conn.Table<Book>();
+                foreach (var item in query)
+                {
+                    currentlist.Add(item);
+                    listBox.Items.Add(item.Name);
+                }
+            }
         }
 
         private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -93,13 +102,16 @@ namespace Rasbrary.uni
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            CoreApplication.Properties.Clear();
-            CoreApplication.Properties.Add("searchType",comboBox.SelectedIndex);
-            CoreApplication.Properties.Add("searchKey", textBox.Text);
-            CoreApplication.Properties.Add("selsch",listBox.SelectedIndex);
-            Frame.Navigate(typeof(BookLocation));
-            Function.SetPageName("책 자리 보기");
-            Data.SetBook(currentlist[listBox.SelectedIndex]);
+            if (listBox.SelectedIndex != -1)
+            {
+                CoreApplication.Properties.Clear();
+                CoreApplication.Properties.Add("searchType", comboBox.SelectedIndex);
+                CoreApplication.Properties.Add("searchKey", textBox.Text);
+                CoreApplication.Properties.Add("selsch", listBox.SelectedIndex);
+                Frame.Navigate(typeof(BookLocation));
+                Function.SetPageName("책 자리 보기");
+                Data.SetBook(currentlist[listBox.SelectedIndex]);
+            }
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -145,25 +157,42 @@ namespace Rasbrary.uni
                             Function.ShowMessage("검색 조건을 선택하세요!");
                     }
                     else
-                        Function.ShowMessage("키워드를 입력하세요.");
+                    {
+                      
+                        var query = DB.conn.Table<Book>();
+                        foreach (var item in query)
+                        {
+                            currentlist.Add(item);
+                            listBox.Items.Add(item.Name);
+                        }
+                    }
                     object selc;
+                    int index;
                     if (CoreApplication.Properties.TryGetValue("selsch", out selc))
-                        listBox.SelectedIndex = int.Parse(selc.ToString());
+                    {
+                        index = int.Parse(selc.ToString());
+                        if (index!=-1&&index<listBox.Items.Count)
+                            listBox.SelectedIndex = index;
+                    }
                 }
             }
         }
 
         private void btndel_Click(object sender, RoutedEventArgs e)
         {
-            
-            Book temp = currentlist[listBox.SelectedIndex];
-            listBox.Items.Clear();
-            string query = "DELETE FROM Book WHERE ISBN="+temp.ISBN+" and x="+temp.x+" and y="+temp.y;
+            if (listBox.SelectedIndex != -1)
+            {
+                Book temp = currentlist[listBox.SelectedIndex];
+                listBox.Items.Clear();
+                string query = "DELETE FROM Book WHERE ISBN=" + temp.ISBN + " and x=" + temp.x + " and y=" + temp.y;
 
-            DB.conn.Execute(query, new Book[1]);
-            currentlist.Remove(temp);
-            foreach (var g in currentlist)
-                listBox.Items.Add(g.Name);
+                DB.conn.Execute(query, new Book[1]);
+                currentlist.Remove(temp);
+                foreach (var g in currentlist)
+                    listBox.Items.Add(g.Name);
+                if (temp.image == DB.src)
+                    DB.ShowMainImage();
+            }
         }
     }
 }

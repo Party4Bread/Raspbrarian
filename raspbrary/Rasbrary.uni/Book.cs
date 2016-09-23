@@ -131,7 +131,7 @@ namespace Rasbrary.uni
             List<Book> L = new List<Book>();
             foreach (var message in query)
             {
-                if(message.Name.IndexOf(name)!=-1)
+                if(message.Name.Contains(name,StringComparison.OrdinalIgnoreCase))
                 {
                     L.Add(message);
                 }
@@ -144,7 +144,7 @@ namespace Rasbrary.uni
             List<Book> L = new List<Book>();
             foreach (var message in query)
             {
-                if (message.Auther.IndexOf(aut) != -1)
+                if (message.Auther.Contains(aut,StringComparison.OrdinalIgnoreCase))
                 {
                     L.Add(message);
                 }
@@ -157,7 +157,7 @@ namespace Rasbrary.uni
             List<Book> L = new List<Book>();
             foreach (var message in query)
             {
-                if (message.Publisher.IndexOf(pub) != -1)
+                if (message.Publisher.Contains(pub,StringComparison.OrdinalIgnoreCase))
                 {
                     L.Add(message);
                 }
@@ -252,5 +252,20 @@ namespace Rasbrary.uni
             currbook = book;
         }
        
+    }
+    public static class StringExtensions
+    {
+        public static bool Contains(this String str, String substring,
+                                    StringComparison comp)
+        {
+            if (substring == null)
+                throw new ArgumentNullException("substring",
+                                                "substring cannot be null.");
+            else if (!Enum.IsDefined(typeof(StringComparison), comp))
+                throw new ArgumentException("comp is not a member of StringComparison",
+                                            "comp");
+
+            return str.IndexOf(substring, comp) >= 0;
+        }
     }
 }

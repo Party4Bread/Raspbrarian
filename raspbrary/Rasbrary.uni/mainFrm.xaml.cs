@@ -23,11 +23,11 @@ namespace Rasbrary.uni
         {
             this.InitializeComponent();
         }
-        Arduino head = new Arduino();
+        //Arduino head = new Arduino();
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {           
             DB.conn.CreateTable<Book>();
-            head.connect();
+           // head.connect();
         }
 
         private void btn_sch_Click(object sender, RoutedEventArgs e)
