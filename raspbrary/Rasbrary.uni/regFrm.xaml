@@ -6,20 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="800" Height="480">
+    Width="1280" Height="720">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="800" Height="480" Loaded="Grid_Loaded">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="48" Width="637" DoubleTapped="textBox_DoubleTapped"/>
-        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" Margin="637,0,0,0" VerticalAlignment="Top" Height="76" Width="163" Click="button_Click"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="30" Height="40"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="112,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Height="40" Width="520"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,126,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="30" Height="40"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="112,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Height="40" Width="520"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,171,0,0" TextWrapping="Wrap" Text="출판사:" VerticalAlignment="Top" FontSize="30" Height="40"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="112,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Height="40" Width="520"/>
-        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="637,81,0,0" VerticalAlignment="Top" Height="399" Width="163" Click="confirm"/>
-        <Image x:Name="image2" HorizontalAlignment="Left" Height="254" Margin="10,216,0,0" VerticalAlignment="Top" Width="158"/>
-        <Button x:Name="button2" Content="back" HorizontalAlignment="Stretch" Margin="0,448,748,0" VerticalAlignment="Top" Height="32" Click="button2_Click"/>
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1280" Height="720" Loaded="Grid_Loaded">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="60" Width="1038" DoubleTapped="textBox_DoubleTapped" Margin="30,8,0,0" Height="96"/>
+        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" Margin="1091,8,0,0" VerticalAlignment="Top" Height="95" Width="180" Click="button_Click" FontSize="40"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="32,167,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="40" Height="58" Width="137"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="214,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30" Height="60" Width="854"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="30,263,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="40" Height="54" Width="139"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="214,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30" Height="60" Width="854"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="32,352,0,0" TextWrapping="Wrap" Text="출판사:" VerticalAlignment="Top" FontSize="40" Height="52" Width="132"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="214,353,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30" Height="60" Width="854"/>
+        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="1091,126,0,0" VerticalAlignment="Top" Height="584" Width="180" Click="confirm" FontSize="40"/>
+        <Image x:Name="image2" HorizontalAlignment="Left" Height="259" Margin="812,438,0,0" VerticalAlignment="Top" Width="240"/>
+        <Button x:Name="button2" Content="back" HorizontalAlignment="Stretch" Margin="10,640,1070,0" VerticalAlignment="Top" Height="70" Click="button2_Click" FontSize="40"/>
 
     </Grid>
 </Page>

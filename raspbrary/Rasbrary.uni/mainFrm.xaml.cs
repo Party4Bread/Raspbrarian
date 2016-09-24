@@ -54,5 +54,10 @@ namespace Rasbrary.uni
             }
             image.Source = new BitmapImage(new Uri(DB.src, UriKind.Absolute));
         }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
+        }
     }
 }
