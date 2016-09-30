@@ -90,6 +90,8 @@ namespace Rasbrary.uni
                         image.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new System.Uri(currentlist[listBox.SelectedIndex].image, System.UriKind.Absolute));
                         if (currentlist[listBox.SelectedIndex].image == null)
                             Function.ShowMessage("No Image");
+                        btndel.IsEnabled = true;
+                        button2.IsEnabled = true;
                     }
                     else
                     {
@@ -116,6 +118,8 @@ namespace Rasbrary.uni
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            btndel.IsEnabled = false;
+            button2.IsEnabled = false;
             object st, sk;
             if(CoreApplication.Properties.TryGetValue("searchType",out st))
             {
@@ -184,14 +188,13 @@ namespace Rasbrary.uni
             {
                 Book temp = currentlist[listBox.SelectedIndex];
                 listBox.Items.Clear();
-                string query = "DELETE FROM Book WHERE ISBN=" + temp.ISBN + " and x=" + temp.x + " and y=" + temp.y;
-
-                DB.conn.Execute(query, new Book[1]);
+                DB.Delete(temp);
                 currentlist.Remove(temp);
                 foreach (var g in currentlist)
                     listBox.Items.Add(g.Name);
                 if (temp.image == DB.src)
                     DB.ShowMainImage();
+                
             }
         }
     }

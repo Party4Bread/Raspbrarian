@@ -20,7 +20,7 @@
             <ComboBoxItem Content="바코드"/>
         </ComboBox>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="143,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="95" Width="910" FontSize="60" Background="White" />
-        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1082,12,0,0" Height="95" Width="180" Click="button_Click" FontSize="50"/>
+        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1067,12,0,0" Height="95" Width="195" Click="button_Click" FontSize="50"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="365" Margin="9,280,0,0" VerticalAlignment="Top" Width="950" SelectionChanged="listBox_SelectionChanged" FontSize="30"/>
         <Rectangle HorizontalAlignment="Left" Height="80" Margin="0,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="1262" Fill="#FF0869DC" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1252" FontSize="44" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">

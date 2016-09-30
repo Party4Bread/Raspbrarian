@@ -194,6 +194,12 @@ namespace Rasbrary.uni
         {
             conn.Insert(newbook);
         }
+        public static void Delete(Book book)
+        {
+            string query = "DELETE FROM Book WHERE ISBN=" + book.ISBN + " and x=" + book.x + " and y=" + book.y;
+
+            conn.Execute(query, new Book[1]);
+        }
         public static string ShowMainImage()
         {
             src = null;
@@ -207,7 +213,7 @@ namespace Rasbrary.uni
                 imagesrc.Add(book.image);
             }
             Imagesrc = imagesrc.ToArray();
-            src = (string)(Imagesrc.GetValue(rd.Next(1, Imagesrc.Length - 1)));
+            src = (string)(Imagesrc.GetValue(rd.Next(0, Imagesrc.Length - 1)));
             
                 return src;
  

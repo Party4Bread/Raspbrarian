@@ -20,12 +20,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,20,0,0" TextWrapping="Wrap" Text="■ 책 자리표"  VerticalAlignment="Top" FontSize="50" Grid.Column="1" Height="79" Width="315" />
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,20,0,0" TextWrapping="Wrap" Text="■ 책 자리표"  VerticalAlignment="Top" FontSize="55" Grid.Column="1" Height="79" Width="376" />
         <Button x:Name="btnConfirm" Content="확인" HorizontalAlignment="Left" Margin="40,14,0,0" VerticalAlignment="Top" Width="200" Height="85" RenderTransformOrigin="0.411,0.507" FontSize="40" Click="btnConfirm_Click" Background="#33000000" Grid.ColumnSpan="2" Grid.Row="1"/>
         <Button x:Name="btnexit" Content="닫기" HorizontalAlignment="Left" Margin="297,14,0,0" VerticalAlignment="Top" Width="200" Height="85" FontSize="40" Click="btnexit_Click" Grid.Column="1" Grid.Row="1"/>
-        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="538,71,0,0" VerticalAlignment="Top" Width="730" Height="620" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True" Grid.Column="1" Grid.RowSpan="2">
+        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="520,56,0,0" VerticalAlignment="Top" Width="750" Height="630" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True" Grid.Column="1" Grid.RowSpan="2">
         </GridView>
-        <TextBlock x:Name="txtX" HorizontalAlignment="Left" Margin="68,173,0,0" TextWrapping="Wrap" Text="행:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="98" Width="229" />
-        <TextBlock x:Name="txtY" HorizontalAlignment="Left" Margin="68,336,0,0" TextWrapping="Wrap" Text="열:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="77" Width="229" />
+        <TextBlock x:Name="txtX" HorizontalAlignment="Left" Margin="92,173,0,0" TextWrapping="Wrap" Text="행:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="98" Width="229" />
+        <TextBlock x:Name="txtY" HorizontalAlignment="Left" Margin="101,336,0,0" TextWrapping="Wrap" Text="열:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="77" Width="229" />
     </Grid>
 </Page>

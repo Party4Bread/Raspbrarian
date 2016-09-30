@@ -11,12 +11,12 @@
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1280" Height="720" Loaded="Grid_Loaded">
         <Button x:Name="btn_sch" HorizontalAlignment="Left" Margin="32,9,0,0" VerticalAlignment="Top" Height="700" Width="350" Click="btn_sch_Click">
             <Button.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/search.png"/>
+                <ImageBrush ImageSource="Assets/search.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
         <Button x:Name="btn_reg" Content="" HorizontalAlignment="Left" Margin="427,13,0,0" VerticalAlignment="Top" Height="700" Width="350" Click="btn_reg_Click">
             <Button.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/add.png"/>
+                <ImageBrush ImageSource="Assets/add.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
         <Image x:Name="image" HorizontalAlignment="Left" Height="476" Margin="833,147,0,0" VerticalAlignment="Top" Width="376" Source="temprec.png"/>

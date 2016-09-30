@@ -44,7 +44,8 @@ namespace Rasbrary.uni
         } 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-                Book currbook = Data.GetBook();
+            btnConfirm.IsEnabled = false;
+            Book currbook = Data.GetBook();
             
             PageName =textBlock.Text = Function.GetPageName();
             if (PageName == "책 자리 정하기")
@@ -58,7 +59,8 @@ namespace Rasbrary.uni
                 y = currbook.y;
                 txtX.Text += x.ToString();
                 txtY.Text += y.ToString();
-                btnConfirm.Visibility = Visibility.Collapsed;
+               
+                btnConfirm.Content = "수정하기";
             }
                 ReadSize();
         }
@@ -76,7 +78,23 @@ namespace Rasbrary.uni
         {
             if ((string)btnConfirm.Content == "설정")
                 SetLocation();
+            if ((string)btnConfirm.Content == "수정하기")
+                
+                ChangeLocation();
         }
+
+        private void ChangeLocation()
+        {
+            Book currbook = Data.GetBook();
+            DB.Delete(currbook);
+            currbook.x = x;
+            currbook.y = y;
+            DB.Insert(currbook);
+            Function.ShowMessage("수정 완료.");
+           
+            
+        }
+
         private async void ReadSize()
         {
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
@@ -101,12 +119,15 @@ namespace Rasbrary.uni
                         btn.Name = (i + 1).ToString() + "," + (j + 1).ToString();
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
                         btn.Width = Math.Round(LocationGrid.Width / (COLUM+1));
-                        if(PageName=="책 자리 정하기")
-                            btn.Click += LocationGrid_ItemClick;
+                        //if(PageName=="책 자리 정하기")
+                        btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
-                            if ((i+1) == x && (j+1) == y)
+                            if ((i + 1) == x && (j + 1) == y)
+                            {
                                 btn.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+                                LastButton = btn;
+                            }
                         }
                         LocationGrid.Items.Add(btn);
                         Grid.SetRow(btn, i);
@@ -119,8 +140,9 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다."+"\r\n"+e.Message);
             }
         }
-        private void LocationGrid_ItemClick(object sender, RoutedEventArgs e)
+        private void ItemClick(object sender, RoutedEventArgs e)
         {
+            btnConfirm.IsEnabled = true;
             txtX.Text = "행:";
             txtY.Text = "열:";
             if(LastButton!=null)
