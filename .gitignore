@@ -191,3 +191,7 @@ $RECYCLE.BIN/
 #####
 raspbrary/raspbrary/raspbrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.txt
+raspbrary/raspbrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+raspbrary/raspbrary/packages.config
+raspbrary/raspbrary/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+raspbrary/raspbrary/pyforrasp.py

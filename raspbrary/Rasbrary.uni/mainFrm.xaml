@@ -9,20 +9,20 @@
     Width="1280" Height="720">
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1280" Height="720" Loaded="Grid_Loaded">
-        <Button x:Name="btn_sch" HorizontalAlignment="Left" Margin="32,9,0,0" VerticalAlignment="Top" Height="700" Width="350" Click="btn_sch_Click">
+        <Button x:Name="btn_sch" HorizontalAlignment="Left" Margin="55,0,0,0" VerticalAlignment="Top" Height="720" Width="350" Click="btn_sch_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/search.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btn_reg" Content="" HorizontalAlignment="Left" Margin="427,13,0,0" VerticalAlignment="Top" Height="700" Width="350" Click="btn_reg_Click">
+        <Button x:Name="btn_reg" Content="" HorizontalAlignment="Left" Margin="462,0,0,0" VerticalAlignment="Top" Height="720" Width="350" Click="btn_reg_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/add.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="476" Margin="833,147,0,0" VerticalAlignment="Top" Width="376" Source="temprec.png"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="825,75,0,0" TextWrapping="Wrap" Text="&lt;오늘의 추천책&gt;" VerticalAlignment="Top" FontSize="50"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="476" Margin="851,147,0,0" VerticalAlignment="Top" Width="376" Source="temprec.png"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="847,75,0,0" TextWrapping="Wrap" Text="&lt;오늘의 추천책&gt;" VerticalAlignment="Top" FontSize="50"/>
         <Button x:Name="button_set" HorizontalAlignment="Left" Margin="1121,5,0,645" VerticalAlignment="Stretch" Width="150" Click="button_Click" Content="설정" Height="70" FontSize="40"/>
-        <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="1110,638,0,0" VerticalAlignment="Top" Width="150" Click="button_Click_1" FontSize="40"  Height="70"/>
+        <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="1130,650,0,0" VerticalAlignment="Top" Width="150" Click="button_Click_1" FontSize="40"  Height="70"/>
 
     </Grid>
 </Page>
