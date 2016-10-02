@@ -6,32 +6,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="1280" Height="720">
+    Width="1024" Height="768">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1280" Height="720" Loaded="Grid_Loaded">
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1024" Height="768" Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Height="95" FontSize="36" Margin="0,12,0,0">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="95" FontSize="40" Margin="0,12,0,0">
             <ComboBoxItem Content="제목"/>
             <ComboBoxItem Content="저자" />
             <ComboBoxItem Content="출판사"/>
             <ComboBoxItem Content="바코드"/>
         </ComboBox>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="143,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="95" Width="910" FontSize="60" Background="White" />
-        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1067,12,0,0" Height="95" Width="195" Click="button_Click" FontSize="50"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="365" Margin="9,280,0,0" VerticalAlignment="Top" Width="950" SelectionChanged="listBox_SelectionChanged" FontSize="30"/>
-        <Rectangle HorizontalAlignment="Left" Height="80" Margin="0,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="1262" Fill="#FF0869DC" StrokeThickness="0"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1252" FontSize="44" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="135,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="95" Width="750" FontSize="60" Background="White" />
+        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="891,12,0,0" Height="95" Width="130" Click="button_Click" FontSize="45"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="390" Margin="5,287,0,0" VerticalAlignment="Top" Width="700" SelectionChanged="listBox_SelectionChanged" FontSize="30"/>
+        <Rectangle HorizontalAlignment="Left" Height="80" Margin="0,114,0,0" Stroke="Black" VerticalAlignment="Top" Width="1024" Fill="#FF0869DC" StrokeThickness="0"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="2,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="1022" FontSize="50" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
         	<Run Text="책제목"/>
         	<Run Text=":"/>
         </TextBlock>
-        <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="70" Margin="3,200,0,0" Stroke="Black" VerticalAlignment="Top" Width="1259" StrokeThickness="0"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="21,210,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="35" Height="51" Width="1241"/>
-        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,657,0,0" Click="button1_Click" Height="50" Width="150" FontSize="30"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="359" Margin="978,283,0,0" VerticalAlignment="Top" Width="266"/>
-        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="978,656,151,0" VerticalAlignment="Top" Height="50" Click="button2_Click" FontSize="23"/>
-        <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="1134,656,0,0" VerticalAlignment="Top" Height="50" Width="110" Click="btndel_Click" FontSize="23"/>
+        <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="70" Margin="3,200,0,0" Stroke="Black" VerticalAlignment="Top" Width="1021" StrokeThickness="0"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="7,203,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="45" Height="60" Width="1017"/>
+        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,684,0,0" Click="button1_Click" Height="70" Width="150" FontSize="40"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="339" Margin="745,300,0,0" VerticalAlignment="Top" Width="246"/>
+        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="725,682,136,0" VerticalAlignment="Top" Height="70" Click="button2_Click" FontSize="25"/>
+        <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="908,683,0,0" VerticalAlignment="Top" Height="70" Width="110" Click="btndel_Click" FontSize="25"/>
     </Grid>
 </Page>

@@ -97,6 +97,7 @@ namespace Rasbrary.uni
 
         private async void ReadSize()
         {
+            double size=0.0;
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
             try
             {
@@ -118,8 +119,7 @@ namespace Rasbrary.uni
                         btn.Content = "";
                         btn.Name = (i + 1).ToString() + "," + (j + 1).ToString();
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
-                        btn.Width = Math.Round(LocationGrid.Width / (COLUM+1));
-                        //if(PageName=="책 자리 정하기")
+                        btn.Width = size =Math.Round(LocationGrid.Width / (COLUM+1));
                         btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
@@ -134,6 +134,7 @@ namespace Rasbrary.uni
                         Grid.SetColumn(btn, j);     
                     }
                 }
+               
             }
             catch(Exception e)
             {
