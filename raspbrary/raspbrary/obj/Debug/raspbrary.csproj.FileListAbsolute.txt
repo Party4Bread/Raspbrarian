@@ -78,3 +78,4 @@ C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Properties.Resources.resources
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.starter.resources
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csproj.GenerateResource.Cache
+C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form3.resources

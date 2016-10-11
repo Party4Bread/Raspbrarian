@@ -39,7 +39,11 @@ namespace Rasbrary.uni
         string[] book;
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            await getResponse(textBox.Text);
+            await searchBookNaverapi(textBox.Text, false);
+        }
+        private async Task searchBookNaverapi(string data,bool quiet)
+        {
+            await getResponse(data);
             if ("nope" != book[0])
             {
                 textBox1.Text = book[0];
@@ -49,7 +53,8 @@ namespace Rasbrary.uni
             }
             else
             {
-                Function.ShowMessage("책을 수동 등록 해야 해!");
+                if(!quiet)
+                    Function.ShowMessage("책을 수동 등록 해야 해!");
             }
         }
         private async Task getResponse(string isbn)//Task.run() 으로 동기명령수행
@@ -157,6 +162,12 @@ namespace Rasbrary.uni
                     Function.ShowMessage("책을 수동 등록 해야 해!");
                 }
             }
+        }
+
+        private async void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textBox.Text.Length == 13)
+                await searchBookNaverapi(textBox.Text,true);
         }
     }
 }
