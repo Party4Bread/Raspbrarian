@@ -9,7 +9,7 @@
     Width="1080" Height="768">
 
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1080" Height="768" Loaded="Grid_Loaded">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="60" Width="920" DoubleTapped="textBox_DoubleTapped" Margin="10,14,0,0" Height="95" TextChanged="textBox_TextChanged"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="60" Width="920" DoubleTapped="textBox_DoubleTapped" Margin="10,14,0,0" Height="95"/>
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" Margin="943,14,0,0" VerticalAlignment="Top" Height="95" Width="130" Click="button_Click" FontSize="45"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,151,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="45" Height="58" Width="156"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="180,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="854"/>
