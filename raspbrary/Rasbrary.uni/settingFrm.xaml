@@ -6,20 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="1080" Height="768">
+    Width="1024" Height="768">
 
-    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1080" Height="768" Loaded="Grid_Loaded">
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="108,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="90" Width="360" FontSize="60"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="112,154,0,0" TextWrapping="Wrap" Text="세로 (열):" VerticalAlignment="Top" FontSize="40"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Margin="569,232,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="360" FontSize="60" Text="0"  Height="90"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="573,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Text="가로 (행):"/>
+    <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1024" Height="768" Loaded="Grid_Loaded">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="80,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="90" Width="360" FontSize="60"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="84,154,0,0" TextWrapping="Wrap" Text="세로 (열):" VerticalAlignment="Top" FontSize="40"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Margin="541,232,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="360" FontSize="60" Text="0"  Height="90"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="545,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Text="가로 (행):"/>
 
 
-        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,232,0,0" Width="40" Height="40" Click="button_Click" FontSize="20"/>
-        <Button x:Name="button_Copy" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="485,277,0,0" Width="40" Height="40" Click="button_Copy_Click" FontSize="20"/>
-        <Button x:Name="button_Copy1" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="945,232,0,0" Height="40" Width="40" Click="button_Copy1_Click" FontSize="20"/>
-        <Button x:Name="button_Copy2" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="945,281,0,0" Height="40" Width="40" Click="button_Copy2_Click" FontSize="20"/>
-        <Button x:Name="button1" Content="적용" HorizontalAlignment="Left" Margin="108,382,0,0" VerticalAlignment="Top" Click="button1_Click" Height="100" Width="200" FontSize="45"/>
+        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,232,0,0" Width="40" Height="40" Click="button_Click" FontSize="20"/>
+        <Button x:Name="button_Copy" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,277,0,0" Width="40" Height="40" Click="button_Copy_Click" FontSize="20"/>
+        <Button x:Name="button_Copy1" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="917,232,0,0" Height="40" Width="40" Click="button_Copy1_Click" FontSize="20"/>
+        <Button x:Name="button_Copy2" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="917,281,0,0" Height="40" Width="40" Click="button_Copy2_Click" FontSize="20"/>
+        <Button x:Name="button1" Content="적용" HorizontalAlignment="Left" Margin="92,382,0,0" VerticalAlignment="Top" Click="button1_Click" Height="100" Width="200" FontSize="45"/>
         <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,668,0,0" VerticalAlignment="Stretch" Click="button2_Click" Width="150" Height="100" FontSize="40"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="28,42,0,0" TextWrapping="Wrap" Text="■ 책 자리표 설정" VerticalAlignment="Top" FontSize="50"/>
 

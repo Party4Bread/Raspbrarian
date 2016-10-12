@@ -30,7 +30,7 @@
         <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="70" Margin="0,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="1024" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="2,203,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="45" Height="60" Width="1017"/>
         <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,698,0,0" Click="button1_Click" Height="70" Width="150" FontSize="40"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="339" Margin="745,300,0,0" VerticalAlignment="Top" Width="246"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="359" Margin="745,300,0,0" VerticalAlignment="Top" Width="237"/>
         <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="700,698,115,0" VerticalAlignment="Top" Height="70" Click="button2_Click" FontSize="25"/>
         <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="914,698,0,0" VerticalAlignment="Top" Height="70" Width="110" Click="btndel_Click" FontSize="25" Foreground="#FFCD0000"/>
     </Grid>

@@ -311,7 +311,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -2726,7 +2726,7 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -5034,7 +5034,7 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -7312,7 +7312,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -9629,7 +9629,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -11907,7 +11907,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -14224,7 +14224,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SQLite.NET-PCL/3.1.1": {
+      "SQLite.Net-PCL/3.1.1": {
         "type": "package",
         "dependencies": {
           "SQLite.Net.Core-PCL": "3.1.1"
@@ -17131,12 +17131,12 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "SQLite.NET-PCL/3.1.1": {
+    "SQLite.Net-PCL/3.1.1": {
       "sha512": "eIaIk+k4MwvBeKyzj1kgIegWXYZlaDAHNzsaYP7wNDgSqAdaza8FgCRun7mIZScJD/RIuKxN/b1V+bkC+/WIeA==",
       "type": "package",
       "files": [
-        "SQLite.NET-PCL.3.1.1.nupkg.sha512",
-        "SQLite.NET-PCL.nuspec",
+        "SQLite.Net-PCL.3.1.1.nupkg.sha512",
+        "SQLite.Net-PCL.nuspec",
         "lib/MonoAndroid/SQLite.Net.Platform.XamarinAndroid.dll",
         "lib/Windows8/SQLite.Net.Platform.WinRT.dll",
         "lib/Xamarin.iOS10/SQLite.Net.Platform.XamarinIOS.Unified.dll",
@@ -21967,7 +21967,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
-      "SQLite.NET-PCL >= 3.1.1"
+      "SQLite.Net-PCL >= 3.1.1"
     ],
     "UAP,Version=v10.0": []
   }
