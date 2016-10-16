@@ -11,16 +11,18 @@
     <Grid Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Width="1024" Height="768" Loaded="Grid_Loaded">
         <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="60" Width="887" DoubleTapped="textBox_DoubleTapped" Margin="5,14,0,0" Height="95" TextChanged="textBox_TextChanged"/>
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" Margin="902,14,0,0" VerticalAlignment="Top" Height="95" Width="117" Click="button_Click" FontSize="45"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,151,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="45" Height="58" Width="156"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="180,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="24,252,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="45" Height="54" Width="156"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="180,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="180,353,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
-        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="596,465,0,53" VerticalAlignment="Stretch" Width="418" Click="confirm" FontSize="50"/>
-        <Image x:Name="image2" HorizontalAlignment="Left" Height="300" Margin="214,445,0,0" VerticalAlignment="Top" Width="286"/>
-        <Button x:Name="button2" Content="back" HorizontalAlignment="Stretch" Margin="0,668,844,0" VerticalAlignment="Top" Height="100" Click="button2_Click" FontSize="40"/>
-        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="24,465,0,0" TextWrapping="Wrap" Text="책 표지" VerticalAlignment="Top" FontSize="45" Height="52" Width="156"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="24,353,0,0" TextWrapping="Wrap" Text="출판사:" VerticalAlignment="Top" FontSize="45" Height="54" Width="156"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,131,0,0" TextWrapping="Wrap" Text="책이름:" VerticalAlignment="Top" FontSize="45" Height="58" Width="156"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="180,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="24,232,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="45" Height="54" Width="156"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="180,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="180,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="35" Height="65" Width="834"/>
+        <Button x:Name="button1" Content="등록" HorizontalAlignment="Left" Margin="902,445,0,10" VerticalAlignment="Stretch" Width="112" Click="confirm" FontSize="50"/>
+        <Image x:Name="image2" HorizontalAlignment="Left" Height="235" Margin="204,484,0,0" VerticalAlignment="Top" Width="193"/>
+        <Button x:Name="button2" Content="back" HorizontalAlignment="Stretch" Margin="0,686,844,0" VerticalAlignment="Top" Height="82" Click="button2_Click" FontSize="40"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="24,484,0,0" TextWrapping="Wrap" Text="책 표지" VerticalAlignment="Top" FontSize="45" Height="52" Width="156" RenderTransformOrigin="0.53,-0.526"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="24,333,0,0" TextWrapping="Wrap" Text="출판사:" VerticalAlignment="Top" FontSize="45" Height="54" Width="156"/>
+        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="419,455,0,0" VerticalAlignment="Top" Width="470" Height="300" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True"/>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="419,396,0,0" TextWrapping="Wrap" Text="책 자리 선택" VerticalAlignment="Top" FontSize="40" Height="52" Width="156"/>
 
     </Grid>
 </Page>

@@ -9,10 +9,13 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -120,9 +123,11 @@ namespace Rasbrary.uni
         }
         private async void confirm(object sender, RoutedEventArgs e)
         {
+            
             CoreApplication.Properties.Add("ISBN", textBox.Text);
             if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
             {
+                Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=book[3]});
                 var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
                 dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(checkresponse)));
                 dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(checkresponse)));
@@ -137,14 +142,13 @@ namespace Rasbrary.uni
         {
             if (command.Label == "확인")
             {
-                Frame.Navigate(typeof(BookLocation));
-                Function.SetPageName("책 자리 정하기");
-                Data.SetBook(new Book() {Name=book[0],Auther=book[1],ISBN=textBox.Text,Publisher=book[2],image=book[3]});             
+                SetLocation();             
             }
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            ReadSize();
             object isbn;
             if (CoreApplication.Properties.TryGetValue("ISBN",out isbn))
             {
@@ -168,6 +172,86 @@ namespace Rasbrary.uni
         {
             if (textBox.Text.Length == 13)
                 await searchBookNaverapi(textBox.Text,true);
+        }
+        public static string PageName;
+        private int ROW;
+        private int COLUM;
+        private int x;
+        private int y;
+        Button LastButton;
+ 
+ 
+
+        private void SetLocation()
+        {
+            Book currbook = Data.GetBook();
+            currbook.x = x;
+            currbook.y = y;
+            DB.Insert(currbook);
+            Function.ShowMessage("등록 완료.");
+            CoreApplication.Properties.Clear();
+            Frame.GoBack();
+        }
+
+
+        private async void ReadSize()
+        {
+            double size = 0.0;
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
+            try
+            {
+                using (XmlReader reader = XmlReader.Create(new StringReader(await FileIO.ReadTextAsync(file))))
+                {
+                    reader.ReadToFollowing("Row");
+                    ROW = int.Parse(reader.ReadElementContentAsString());
+                }
+                using (XmlReader reader = XmlReader.Create(new StringReader(await FileIO.ReadTextAsync(file))))
+                {
+                    reader.ReadToFollowing("Line");
+                    COLUM = int.Parse(reader.ReadElementContentAsString());
+                }
+                for (int i = 0; i < ROW; i++)
+                {
+                    for (int j = 0; j < COLUM; j++)
+                    {
+                        Button btn = new Button();
+                        btn.Content = "";
+                        btn.Name = (i + 1).ToString() + "," + (j + 1).ToString();
+                        btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
+                        btn.Width = size = Math.Round(LocationGrid.Width / (COLUM + 1));
+                        btn.Click += ItemClick;
+                        if (PageName == "책 자리 보기")
+                        {
+                            if ((i + 1) == x && (j + 1) == y)
+                            {
+                                btn.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+                                LastButton = btn;
+                            }
+                        }
+                        LocationGrid.Items.Add(btn);
+                        Grid.SetRow(btn, i);
+                        Grid.SetColumn(btn, j);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
+            }
+        }
+        private void ItemClick(object sender, RoutedEventArgs e)
+        {
+            
+           
+            if (LastButton != null)
+                LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
+            Button SelectedButton = (Button)e.OriginalSource;
+            SelectedButton.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+            string[] Point = SelectedButton.Name.Split(',');
+            x = int.Parse(Point[0]);
+            y = int.Parse(Point[1]);
+            LastButton = SelectedButton;
         }
     }
 }

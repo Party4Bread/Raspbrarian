@@ -48,11 +48,7 @@ namespace Rasbrary.uni
             Book currbook = Data.GetBook();
             
             PageName =textBlock.Text = Function.GetPageName();
-            if (PageName == "책 자리 정하기")
-            {
-                btnConfirm.Visibility = Visibility.Visible;
-                btnConfirm.Content = "설정";
-            }
+            
             if (PageName == "책 자리 보기")
             {
                 x = currbook.x;
@@ -64,20 +60,10 @@ namespace Rasbrary.uni
             }
                 ReadSize();
         }
-        private void SetLocation()
-        {
-            Book currbook = Data.GetBook();
-            currbook.x = x;
-            currbook.y = y;
-            DB.Insert(currbook);            
-            Function.ShowMessage("등록 완료.");
-            CoreApplication.Properties.Clear();
-            Frame.GoBack();
-        }
+       
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if ((string)btnConfirm.Content == "설정")
-                SetLocation();
+         
             if ((string)btnConfirm.Content == "수정하기")
                 
                 ChangeLocation();
