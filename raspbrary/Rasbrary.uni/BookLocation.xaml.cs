@@ -77,8 +77,6 @@ namespace Rasbrary.uni
             currbook.y = y;
             DB.Insert(currbook);
             Function.ShowMessage("수정 완료.");
-           
-            
         }
 
         private async void ReadSize()

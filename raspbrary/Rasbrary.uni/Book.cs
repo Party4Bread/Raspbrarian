@@ -3,11 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Windows.UI.Popups;
-using Windows.Devices.SerialCommunication;
 using Windows.Devices.Enumeration;
-using System.Threading;
-using System.Collections.ObjectModel;
-using Windows.Storage.Streams;
 using System.Threading.Tasks;
 using Windows.Devices.I2c;
 
@@ -23,7 +19,7 @@ namespace Rasbrary.uni
         public int y { get; set; }
         public string image { get; set; }
     }
-   
+   /*
     class Arduino
     {
         I2cDevice arduino;
@@ -49,7 +45,7 @@ namespace Rasbrary.uni
             return buf;
         }
     }
-
+    */
 
     class DB
     {
