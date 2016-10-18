@@ -18,6 +18,7 @@ using System.Xml;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
 using Windows.ApplicationModel.Core;
+using ArduinoSerial;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -42,7 +43,7 @@ namespace Rasbrary.uni
         {           
             Frame.GoBack();         
         } 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             btnConfirm.IsEnabled = false;
             Book currbook = Data.GetBook();
@@ -59,6 +60,10 @@ namespace Rasbrary.uni
                 btnConfirm.Content = "수정하기";
             }
                 ReadSize();
+            Arduino head = new Arduino();
+            head.connect(null);
+            int address=0;//Todo: get address by coordnation
+            await head.WriteAsync(address.ToString());
         }
        
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
