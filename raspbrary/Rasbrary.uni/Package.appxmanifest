@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="RasbraryApplication" Publisher="CN=BREADY" Version="1.3.7.0" />
+  <Identity Name="RasbraryApplication" Publisher="CN=BREADY" Version="1.3.13.0" />
   <mp:PhoneIdentity PhoneProductId="0431cd82-2553-4042-b33d-54069b1af891" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Rasbrary</DisplayName>
     <PublisherDisplayName>Inbread</PublisherDisplayName>
-    <Logo>Assets\Raspbrarian-icon.png</Logo>
+    <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
@@ -15,15 +15,14 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Rasbrary.uni.MainPage">
-      <uap:VisualElements DisplayName="Rasbrary" Square150x150Logo="Assets\150Raspbrarian-icon.png" Square44x44Logo="Assets\44Raspbrarian-icon.png" Description="Book System" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\150Raspbrarian-icon.png" Square310x310Logo="Assets\310Raspbrarian-icon.png" Square71x71Logo="Assets\71Raspbrarian-icon.png">
+      <uap:VisualElements DisplayName="Rasbrary" Description="Book System" BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Square310x310Logo="Assets\620Raspbrarian-icon.png" Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />
             <uap:ShowOn Tile="square310x310Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\Raspbrarian-splash.png" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape" />
         </uap:InitialRotationPreference>

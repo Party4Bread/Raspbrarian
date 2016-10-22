@@ -17,6 +17,9 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Rasbrary.uni_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <Optimize>false</Optimize>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -42,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x86\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -54,7 +57,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\ARM\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <OutputPath>bin\ARM\Release\</OutputPath>
@@ -67,7 +70,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\ARM\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\ARM\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -79,7 +82,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x64\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -92,10 +95,11 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vs2B99.tmp\x64\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x64\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="KeyOfRasp.snk" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -129,30 +133,19 @@
   <ItemGroup>
     <None Include="Assets\search.jpg" />
     <None Include="Assets\add.jpg" />
-    <Content Include="Assets\150Raspbrarian-icon.png" />
-    <Content Include="Assets\176Raspbrarian-icon.png" />
-    <Content Include="Assets\284Raspbrarian-icon.png" />
-    <Content Include="Assets\310Raspbrarian-icon.png" />
-    <Content Include="Assets\44Raspbrarian-icon.png" />
-    <Content Include="Assets\600Raspbrarian-icon.png" />
-    <Content Include="Assets\620Raspbrarian-icon.png" />
-    <Content Include="Assets\71Raspbrarian-icon.png" />
+    <Content Include="Assets\620Raspbrarian-icon.scale-200.png" />
+    <Content Include="Assets\71Raspbrarian-icon.scale-200.png" />
     <Content Include="Assets\add.png" />
     <Content Include="Assets\Raspbrarian-icon.png" />
+    <Content Include="Assets\Raspbrarian-icon.scale-200.png" />
     <Content Include="Assets\Raspbrarian-splash.png" />
     <Content Include="Assets\search.png" />
-    <Content Include="Assets\Square150x150Logo.scale-400.png" />
-    <Content Include="Assets\Square310x310Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-400.png" />
-    <Content Include="Assets\Square71x71Logo.scale-400.png" />
-    <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Square71x71Logo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -196,6 +189,12 @@
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>KeyOfRasp.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
