@@ -34,6 +34,8 @@ namespace Rasbrary.uni
         private int COLUM;
         private int x;
         private int y;
+        private int inix;
+        private int iniy;
         Button LastButton;
         Button OriginButton;
         public BookLocation()
@@ -46,10 +48,11 @@ namespace Rasbrary.uni
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DB.conn.CreateTable<Location>();
+            
             btnConfirm.IsEnabled = false;
             Book currbook = Data.GetBook();
-
+            inix = currbook.x;
+            iniy = currbook.y;
             PageName = textBlock.Text = Function.GetPageName();
 
             if (PageName == "책 자리 보기")
@@ -80,13 +83,22 @@ namespace Rasbrary.uni
 
         private void ChangeLocation()
         {
-            Book currbook = Data.GetBook();
-            DB.Delete(currbook);
-            currbook.x = x;
-            currbook.y = y;
-            DB.Insert(currbook);
-            Function.ShowMessage("수정 완료.");
-            Page_Loaded(null,null);
+            if (!DB.locationexist(x, y))
+            {
+                Book currbook = Data.GetBook();
+                DB.Delete(currbook);
+                DB.Delete(inix,iniy);
+                currbook.x = x;
+                currbook.y = y;
+                DB.Insert(currbook);
+                DB.Insert(new Location { x = x, y = y, addr = DB.conn.Table<Location>().Count() + 1 });
+                Function.ShowMessage("수정 완료.");
+                Page_Loaded(null, null);
+            }
+            else
+            {
+                Function.ShowMessage("자리에 책이 이미 있습니다.\r\n다시 지정해 주세요.");
+            }
         }
 
         private async void ReadSize()

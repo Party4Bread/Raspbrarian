@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Threading;
-using Windows.Networking.BackgroundTransfer;
-using Windows.Security.Cryptography;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -50,6 +44,9 @@ namespace Rasbrary.uni
             try
             {
                 DB.conn.CreateTable<Book>();
+                DB.conn.CreateTable<Location>();
+                //DB.conn.DeleteAll<Location>(); //- 데이터 삭제용 임시 코드
+                // DB.conn.DeleteAll<Book>();
                 if (!DB.HasMainImage())
                 {
                     DB.src = DB.ShowMainImage();

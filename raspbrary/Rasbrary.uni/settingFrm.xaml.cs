@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
@@ -64,9 +53,9 @@ namespace Rasbrary.uni
             using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
                 Stream s = writeStream.AsStreamForWrite();
-                System.Xml.XmlWriterSettings settings = new XmlWriterSettings();
+                XmlWriterSettings settings = new XmlWriterSettings();
                 settings.Async = true;
-                using (XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
+                using (XmlWriter writer = XmlWriter.Create(s, settings))
                 {
                     writer.WriteStartElement("sheet");
                     writer.WriteElementString("Row", textBox.Text);
@@ -80,21 +69,10 @@ namespace Rasbrary.uni
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            DB.conn.CreateTable<Location>();
+            
        
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
-            /*            
-                        using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))
-                        {
-                            Stream s = writeStream.AsStream();
-                            XmlDocument doc = new XmlDocument();
-                            doc.LoadXml(s.ToString());
-                            XElement R = xd.Root.Element("sheet").Element("Row");
-                            XElement L = xd.Root.Element("sheet").Element("Line");
-                            textBox.Text = R.Value;
-                            textBox_Copy.Text = L.Value;
-                        }
-            */
+
 
             // Create an XmlReader
             try
@@ -115,13 +93,13 @@ namespace Rasbrary.uni
                 using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))
                 {
                     Stream s = writeStream.AsStreamForWrite();
-                    System.Xml.XmlWriterSettings settings = new System.Xml.XmlWriterSettings();
+                    XmlWriterSettings settings = new XmlWriterSettings();
                     settings.Async = true;
                     using (XmlWriter writer = System.Xml.XmlWriter.Create(s, settings))
                     {
                         writer.WriteStartElement("sheet");
-                        writer.WriteElementString("Row", "1");
-                        writer.WriteElementString("Line", "1");
+                        writer.WriteElementString("Row", "7");
+                        writer.WriteElementString("Line", "7");
                         writer.Flush(); 
                         await writer.FlushAsync();
                     }

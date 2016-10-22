@@ -1,30 +1,19 @@
-﻿using Rasbrary.uni;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using Windows.ApplicationModel.Core;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
@@ -103,9 +92,7 @@ namespace Rasbrary.uni
                     if (resp.StatusCode == HttpStatusCode.NotFound)
                     {                        
                     }
-                    else
-                    {                        
-                    }
+                 
                 }
                 else
                 {                    
@@ -124,7 +111,7 @@ namespace Rasbrary.uni
         private async void confirm(object sender, RoutedEventArgs e)
         {
             
-            CoreApplication.Properties.Add("ISBN", textBox.Text);
+            //CoreApplication.Properties.Add("ISBN", textBox.Text);
             if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
             {
                 Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=book[3]});
@@ -148,6 +135,7 @@ namespace Rasbrary.uni
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            button.IsEnabled = false;
             ReadSize();
             object isbn;
             if (CoreApplication.Properties.TryGetValue("ISBN",out isbn))
@@ -163,7 +151,7 @@ namespace Rasbrary.uni
                 }
                 else
                 {
-                    Function.ShowMessage("책을 수동 등록 해야 해!");
+                    Function.ShowMessage("책을 수동 등록 해야 합니다.");
                 }
             }
         }
@@ -171,7 +159,10 @@ namespace Rasbrary.uni
         private async void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox.Text.Length == 13)
-                await searchBookNaverapi(textBox.Text,true);
+            {
+                button.IsEnabled = true;
+                await searchBookNaverapi(textBox.Text, true);
+            }
         }
         public static string PageName;
         private int ROW;
@@ -184,14 +175,24 @@ namespace Rasbrary.uni
 
         private void SetLocation()
         {
-            Book currbook = Data.GetBook();
-            currbook.x = x;
-            currbook.y = y;
-            DB.Insert(currbook);
-            DB.Insert(new Location {x=4,y=5,addr=12});
-            Function.ShowMessage("등록 완료.");
-            CoreApplication.Properties.Clear();
-            Frame.GoBack();
+           
+           
+            if (!DB.locationexist(x,y))
+            {
+                
+                Book currbook = Data.GetBook();
+                currbook.x = x;
+                currbook.y = y;
+                DB.Insert(currbook);
+                DB.Insert(new Location { x = x, y = y, addr = DB.conn.Table<Location>().Count()+1 });
+                Function.ShowMessage("등록 완료.");
+                CoreApplication.Properties.Clear();
+                Frame.GoBack();
+            }
+            else
+            {
+                Function.ShowMessage("자리에 책이 이미 있습니다.\r\n다시 지정해 주세요.");
+            }
         }
 
 

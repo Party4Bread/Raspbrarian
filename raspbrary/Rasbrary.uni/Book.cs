@@ -9,6 +9,7 @@ using Windows.Devices.I2c;
 
 namespace Rasbrary.uni
 {
+    #region BaseType
     class Book
     {
         public string ISBN { get; set; }
@@ -25,7 +26,8 @@ namespace Rasbrary.uni
         public int y { get; set; }
         public int addr { get; set; }
     }
-   /*
+    #endregion
+    /*
     class Arduino
     {
         I2cDevice arduino;
@@ -139,6 +141,11 @@ namespace Rasbrary.uni
 
             conn.Execute(query, new Book[1]);
         }
+       public static void Delete(int x,int y)
+        {
+            string query = "DELETE FROM Location WHERE x=" + x + " and y=" + y;
+            conn.Execute(query, new Location[1]);
+        }
         public static string ShowMainImage()
         {
             src = null;
@@ -163,6 +170,20 @@ namespace Rasbrary.uni
                 return false;
             else
                 return true;
+        }
+        public static bool locationexist(int x,int y)
+        {
+            bool isexist = false;
+            var query = conn.Table<Book>();
+            foreach (var book in query)
+            {
+                if (book.x == x && book.y == y)
+                {
+                    isexist = true;
+                }
+
+            }
+            return isexist;
         }
 
     }
