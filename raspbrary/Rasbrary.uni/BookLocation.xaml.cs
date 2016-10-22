@@ -42,30 +42,33 @@ namespace Rasbrary.uni
         private void btnexit_Click(object sender, RoutedEventArgs e)
         {           
             Frame.GoBack();         
-        } 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            DB.conn.CreateTable<Location>();
             btnConfirm.IsEnabled = false;
             Book currbook = Data.GetBook();
-            
-            PageName =textBlock.Text = Function.GetPageName();
-            
+
+            PageName = textBlock.Text = Function.GetPageName();
+
             if (PageName == "책 자리 보기")
             {
                 x = currbook.x;
                 y = currbook.y;
                 txtX.Text += x.ToString();
                 txtY.Text += y.ToString();
-               
+
                 btnConfirm.Content = "수정하기";
             }
-                ReadSize();
-            Arduino head = new Arduino();
-            head.connect(null);
-            int address=0;//Todo: get address by coordnation
-            await head.WriteAsync(address.ToString());
+            ReadSize();
+            /* 
+             Arduino head = new Arduino();
+             head.connect(null);
+             int address=0;//Todo: get address by coordnation
+             await head.WriteAsync(address.ToString());
+             */
         }
-       
+
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
          

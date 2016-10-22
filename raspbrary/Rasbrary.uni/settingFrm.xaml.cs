@@ -80,6 +80,8 @@ namespace Rasbrary.uni
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            DB.conn.CreateTable<Location>();
+       
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
             /*            
                         using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))

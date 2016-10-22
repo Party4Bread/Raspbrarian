@@ -19,6 +19,12 @@ namespace Rasbrary.uni
         public int y { get; set; }
         public string image { get; set; }
     }
+    class Location
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+        public int addr { get; set; }
+    }
    /*
     class Arduino
     {
@@ -48,6 +54,7 @@ namespace Rasbrary.uni
     */
 
     class DB
+
     {
         public static string src;
         public static string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
@@ -105,23 +112,27 @@ namespace Rasbrary.uni
             }
             return L;
         }
-        public static void Insert(string isbn,string name,string aut, string pub, int x,int y,string imgsrc)
-        { 
+        public static void Insert(string isbn, string name, string aut, string pub, int x, int y, string imgsrc)
+        {
             conn.Insert(new Book()
             {
-                Auther=aut,
-                image=imgsrc,
-                Name=name,
-                ISBN=isbn,
-                Publisher=pub,
-                x=x,
-                y=y
+                Auther = aut,
+                image = imgsrc,
+                Name = name,
+                ISBN = isbn,
+                Publisher = pub,
+                x = x,
+                y = y
             });
         }
-        public static void Insert(Book newbook)
+        public static void Insert(object obj)
         {
-            conn.Insert(newbook);
+            if (obj is Book)
+                conn.Insert((Book)obj);
+            else if (obj is Location)
+                conn.Insert((Location)obj);
         }
+           
         public static void Delete(Book book)
         {
             string query = "DELETE FROM Book WHERE ISBN=" + book.ISBN + " and x=" + book.x + " and y=" + book.y;
@@ -189,7 +200,7 @@ namespace Rasbrary.uni
     }
     public static class StringExtensions
     {
-        public static bool Contains(this String str, String substring,
+        public static bool Contains(this string str, string substring,
                                     StringComparison comp)
         {
             if (substring == null)
