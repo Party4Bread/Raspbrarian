@@ -35,6 +35,7 @@ namespace Rasbrary.uni
         private int x;
         private int y;
         Button LastButton;
+        Button OriginButton;
         public BookLocation()
         {
             InitializeComponent();         
@@ -55,8 +56,8 @@ namespace Rasbrary.uni
             {
                 x = currbook.x;
                 y = currbook.y;
-                txtX.Text += x.ToString();
-                txtY.Text += y.ToString();
+                txtX.Text = "행:"+x.ToString();
+                txtY.Text = "열:"+y.ToString();
 
                 btnConfirm.Content = "수정하기";
             }
@@ -85,6 +86,7 @@ namespace Rasbrary.uni
             currbook.y = y;
             DB.Insert(currbook);
             Function.ShowMessage("수정 완료.");
+            Page_Loaded(null,null);
         }
 
         private async void ReadSize()
@@ -103,6 +105,7 @@ namespace Rasbrary.uni
                     reader.ReadToFollowing("Line");
                     COLUM=int.Parse(reader.ReadElementContentAsString());
                 }
+                LocationGrid.Items.Clear();
                 for (int i = 0; i < ROW; i++)
                 {
                     for (int j = 0; j < COLUM; j++)
@@ -118,7 +121,7 @@ namespace Rasbrary.uni
                             if ((i + 1) == x && (j + 1) == y)
                             {
                                 btn.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
-                                LastButton = btn;
+                                OriginButton = btn;
                             }
                         }
                         LocationGrid.Items.Add(btn);
@@ -141,7 +144,8 @@ namespace Rasbrary.uni
             if(LastButton!=null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
             Button SelectedButton = (Button)e.OriginalSource;
-            SelectedButton.Background= new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+            SelectedButton.Background= new SolidColorBrush(Color.FromArgb(132, 27, 186, 154));
+            OriginButton.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
             string[] Point=SelectedButton.Name.Split(',');
             x = int.Parse(Point[0]);
             y = int.Parse(Point[1]);
