@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Google.Apis.Books;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
@@ -31,7 +32,8 @@ namespace Rasbrary.uni
         string[] book;
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            await searchBookNaverapi(textBox.Text, false);
+            await GoogleTest(textBox.Text);
+            //await searchBookNaverapi(textBox.Text, false);
         }
         private async Task searchBookNaverapi(string data,bool quiet)
         {
@@ -49,6 +51,7 @@ namespace Rasbrary.uni
                     Function.ShowMessage("책을 수동 등록 해야 해!");
             }
         }
+        
         private async Task getResponse(string isbn)//Task.run() 으로 동기명령수행
         {
             string URL = "https://openapi.naver.com/v1/search/book.xml",
@@ -255,5 +258,96 @@ namespace Rasbrary.uni
             y = int.Parse(Point[1]);
             LastButton = SelectedButton;
         }
+        public static async Task<Volume> SearchISBN(string isbn)
+        {
+           
+            var result = await service.Volumes.List(isbn).ExecuteAsync();
+            if (result != null && result.Items != null)
+            {
+                var item = result.Items.FirstOrDefault();
+                return item;
+            }
+            return null;
+        }
+        private async Task GoogleTest(string isbn)//Task.run() 으로 동기명령수행
+        {
+            string URL = "https://www.googleapis.com/books/v1/volumes",
+            apikey = "AIzaSyCJYdfg4qMeawcpOEWx4wqSqbCLorbmNoc";
+           
+            HttpWebRequest wReq;
+            WebResponse wRes;
+            try
+            {
+                Uri uri = new Uri(URL + "?q=isbn:" + isbn.ToString()+"&key="+apikey); // string 을 Uri 로 형변환
+                wReq = (HttpWebRequest)WebRequest.Create(uri); // WebRequest 객체 형성 및 HttpWebRequest 로 형변환
+                wReq.Method = "GET"; // 전송 방법 "GET" or "POST" 
+              
+                using (wRes = await wReq.GetResponseAsync())
+                {
+                    Stream respPostStream = wRes.GetResponseStream();
+                    StreamReader readerPost = new StreamReader(respPostStream, Encoding.GetEncoding("UTF-8"), true);
+                    string response = readerPost.ReadToEnd();
+                   
+                    
+                    /* try
+                    {
+                        var json = JsonConvert.DeserializeObject<dynamic>(response);
+                        
+                        if (title != null && author != null && pub != null)
+                            Function.ShowMessage("할당성공!");
+                        if (title==null)
+                        {
+                            Function.ShowMessage(" title 실패....");
+                        }
+                        if (author == null)
+                        {
+                            Function.ShowMessage(" author 실패....");
+                        }
+                        if (pub == null)
+                        {
+                            Function.ShowMessage(" publisher 실패....");
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Function.ShowMessage("문제발생!");
+                    }
+                    /*
+                    
+                    */
+            
+                    /*
+                    try
+                    {
+                        //9788952210043s
+                        XDocument xd = XDocument.Parse(response);
+                        XElement title = xd.Root.Element("channel").Element("item").Element("title");
+                        XElement author = xd.Root.Element("channel").Element("item").Element("author");
+                        XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
+                        XElement image = xd.Root.Element("channel").Element("item").Element("image");
+                        book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
+                    }
+                    catch (Exception e)
+                    {
+                        book = new string[] { "nope" };
+                    }*/
+                }
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
+                {
+                    var resp = (HttpWebResponse)ex.Response;
+                    if (resp.StatusCode == HttpStatusCode.NotFound)
+                    {
+                    }
+
+                }
+                else
+                {
+                }
+            }
+        }
     }
+    
 }

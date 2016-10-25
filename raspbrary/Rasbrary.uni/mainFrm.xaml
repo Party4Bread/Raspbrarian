@@ -20,7 +20,7 @@
             </Button.Background>
         </Button>
         <Image x:Name="image" HorizontalAlignment="Left" Height="532" Margin="696,137,0,0" VerticalAlignment="Top" Width="314" Source="temprec.png"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="691,15,0,0" TextWrapping="Wrap" Text="&lt;오늘의 추천책&gt;" VerticalAlignment="Top" FontSize="40" Width="319" RenderTransformOrigin="0.52,-1.358"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="701,19,0,0" TextWrapping="Wrap" Text="&lt;오늘의 추천책&gt;" VerticalAlignment="Top" FontSize="40" Width="319" RenderTransformOrigin="0.52,-1.358"/>
         <Button x:Name="button_set" HorizontalAlignment="Left" Margin="696,688,0,10" VerticalAlignment="Stretch" Width="150" Click="button_Click" Content="설정" Height="70" FontSize="40"/>
         <Button x:Name="button" Content="Exit" HorizontalAlignment="Left" Margin="864,688,0,0" VerticalAlignment="Top" Width="150" Click="button_Click_1" FontSize="40"  Height="70"/>
 
