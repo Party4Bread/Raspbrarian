@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using Google.Apis.Books;
 
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
@@ -32,6 +32,7 @@ namespace Rasbrary.uni
         string[] book;
         private async void button_Click(object sender, RoutedEventArgs e)
         {
+            
             await GoogleTest(textBox.Text);
             //await searchBookNaverapi(textBox.Text, false);
         }
@@ -258,20 +259,25 @@ namespace Rasbrary.uni
             y = int.Parse(Point[1]);
             LastButton = SelectedButton;
         }
-        public static async Task<Volume> SearchISBN(string isbn)
-        {
-           
-            var result = await service.Volumes.List(isbn).ExecuteAsync();
-            if (result != null && result.Items != null)
-            {
-                var item = result.Items.FirstOrDefault();
-                return item;
-            }
-            return null;
-        }
+      
         private async Task GoogleTest(string isbn)//Task.run() 으로 동기명령수행
         {
-            string URL = "https://www.googleapis.com/books/v1/volumes",
+
+
+            var Iresult = BookSearch.SearchISBN(isbn);
+            var result = Iresult.Result;
+            if (result.VolumeInfo.Title != null && result.VolumeInfo.Authors.FirstOrDefault()!=null&&result.VolumeInfo.Publisher!=null&& result.VolumeInfo.ImageLinks.Small!=null)
+            {
+                textBox1.Text = result.VolumeInfo.Title;
+                textBox2.Text = result.VolumeInfo.Authors.FirstOrDefault();
+                textBox3.Text = result.VolumeInfo.Publisher;
+                image2.Source = new BitmapImage(new Uri(result.VolumeInfo.ImageLinks.Small, UriKind.Absolute));
+            }
+            else
+            {
+                Function.ShowMessage("데이터가 부족합니다!");
+            }
+                /*string URL = "https://www.googleapis.com/books/v1/volumes",
             apikey = "AIzaSyCJYdfg4qMeawcpOEWx4wqSqbCLorbmNoc";
            
             HttpWebRequest wReq;
@@ -315,38 +321,38 @@ namespace Rasbrary.uni
                     /*
                     
                     */
-            
-                    /*
-                    try
-                    {
-                        //9788952210043s
-                        XDocument xd = XDocument.Parse(response);
-                        XElement title = xd.Root.Element("channel").Element("item").Element("title");
-                        XElement author = xd.Root.Element("channel").Element("item").Element("author");
-                        XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
-                        XElement image = xd.Root.Element("channel").Element("item").Element("image");
-                        book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
-                    }
-                    catch (Exception e)
-                    {
-                        book = new string[] { "nope" };
-                    }*/
-                }
-            }
-            catch (WebException ex)
-            {
-                if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
-                {
-                    var resp = (HttpWebResponse)ex.Response;
-                    if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {
-                    }
 
-                }
-                else
-                {
-                }
+            /*
+            try
+            {
+                //9788952210043s
+                XDocument xd = XDocument.Parse(response);
+                XElement title = xd.Root.Element("channel").Element("item").Element("title");
+                XElement author = xd.Root.Element("channel").Element("item").Element("author");
+                XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
+                XElement image = xd.Root.Element("channel").Element("item").Element("image");
+                book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
             }
+            catch (Exception e)
+            {
+                book = new string[] { "nope" };
+            }
+        }
+    }
+    catch (WebException ex)
+    {
+        if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
+        {
+            var resp = (HttpWebResponse)ex.Response;
+            if (resp.StatusCode == HttpStatusCode.NotFound)
+            {
+            }
+
+        }
+        else
+        {
+        }
+    }*/
         }
     }
     

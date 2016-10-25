@@ -6,6 +6,13 @@ using Windows.UI.Popups;
 using Windows.Devices.Enumeration;
 using System.Threading.Tasks;
 using Windows.Devices.I2c;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Books.v1;
+using Google.Apis.Books.v1.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using System.Linq;
 
 namespace Rasbrary.uni
 {
@@ -234,4 +241,31 @@ namespace Rasbrary.uni
             return str.IndexOf(substring, comp) >= 0;
         }
     }
+    public class BookSearch
+    {
+        //You need to substitute this with your own API key.
+        //For more information, visit http://wp.me/paUXZ-TY 
+        private static string API_KEY = "AIzaSyCJYdfg4qMeawcpOEWx4wqSqbCLorbmNoc";
+
+        public static BooksService service = new BooksService(new BaseClientService.Initializer
+        {
+            ApplicationName="우리집 책장지기",
+            ApiKey = API_KEY
+        });
+
+        public static async Task<Volume> SearchISBN(string isbn)
+        {
+            
+            var result = await service.Volumes.List(isbn).ExecuteAsync();
+
+            if (result != null && result.Items != null)
+            {
+                var item = result.Items.FirstOrDefault();
+                return item;
+            }
+            return null;
+        }
+
+    }
 }
+
