@@ -3,15 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Windows.UI.Popups;
-using Windows.Devices.Enumeration;
 using System.Threading.Tasks;
-using Windows.Devices.I2c;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Books.v1;
 using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
-using Google.Apis.Util.Store;
 using System.Linq;
 
 namespace Rasbrary.uni
@@ -65,52 +60,55 @@ namespace Rasbrary.uni
     class DB
 
     {
-        public static string src;
-        public static string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
-        public static SQLiteConnection conn = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+        public static string Src;
+        public static string DBpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
+        public static SQLiteConnection Conn = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), DBpath);
        
         public static List<Book> FindbyName(string name)
         {
-            var query = conn.Table<Book>();
-            List<Book> L = new List<Book>();
+            var query = Conn.Table<Book>();
+            List<Book> list = new List<Book>();
             foreach (var message in query)
             {
                 if(message.Name.Contains(name,StringComparison.OrdinalIgnoreCase))
                 {
-                    L.Add(message);
+                    list.Add(message);
                 }
             }
-            return L;
+            return list;
         }
+
         public static List<Book> FindbyAuther(string aut)
         {
-            var query = conn.Table<Book>();
-            List<Book> L = new List<Book>();
+            var query = Conn.Table<Book>();
+            List<Book> list = new List<Book>();
             foreach (var message in query)
             {
                 if (message.Auther.Contains(aut,StringComparison.OrdinalIgnoreCase))
                 {
-                    L.Add(message);
+                    list.Add(message);
                 }
             }
-            return L;
+            return list;
         }
+
         public static List<Book> FindbyPublisher(string pub)
         {
-            var query = conn.Table<Book>();
-            List<Book> L = new List<Book>();
+            var query = Conn.Table<Book>();
+            List<Book> list = new List<Book>();
             foreach (var message in query)
             {
                 if (message.Publisher.Contains(pub,StringComparison.OrdinalIgnoreCase))
                 {
-                    L.Add(message);
+                    list.Add(message);
                 }
             }
-            return L;
+            return list;
         }
+
         public static List<Book> Findbyisbn(string isbn)
         {
-            var query = conn.Table<Book>();
+            var query = Conn.Table<Book>();
             List<Book> L = new List<Book>();
             foreach (var message in query)
             {
@@ -123,7 +121,7 @@ namespace Rasbrary.uni
         }
         public static void Insert(string isbn, string name, string aut, string pub, int x, int y, string imgsrc)
         {
-            conn.Insert(new Book()
+            Conn.Insert(new Book()
             {
                 Auther = aut,
                 image = imgsrc,
@@ -137,51 +135,49 @@ namespace Rasbrary.uni
         public static void Insert(object obj)
         {
             if (obj is Book)
-                conn.Insert((Book)obj);
+                Conn.Insert((Book)obj);
             else if (obj is Location)
-                conn.Insert((Location)obj);
+                Conn.Insert((Location)obj);
         }
            
         public static void Delete(Book book)
         {
             string query = "DELETE FROM Book WHERE ISBN=" + book.ISBN + " and x=" + book.x + " and y=" + book.y;
-
-            conn.Execute(query, new Book[1]);
+            Conn.Execute(query, new Book[1]);
         }
-       public static void Delete(int x,int y)
+
+        public static void Delete(int x,int y)
         {
             string query = "DELETE FROM Location WHERE x=" + x + " and y=" + y;
-            conn.Execute(query, new Location[1]);
+            Conn.Execute(query, new Location[1]);
         }
+
         public static string ShowMainImage()
         {
-            src = null;
-            var query = conn.Table<Book>();
-            string[] Imagesrc;
+            Src = null;
+            var query = Conn.Table<Book>();
             List<string> imagesrc = new List<string>();
-           
-            Random rd = new Random();
+            var rd = new Random();
             foreach (var book in query)
             {
                 imagesrc.Add(book.image);
             }
-            Imagesrc = imagesrc.ToArray();
-            src = (string)(Imagesrc.GetValue(rd.Next(0, Imagesrc.Length - 1)));
-            
-                return src;
- 
+            string[] imageArray = imagesrc.ToArray();
+            Src = (string)(imageArray.GetValue(rd.Next(0, imageArray.Length - 1)));
+            return Src;
         }
+
         public static bool HasMainImage()
         {
-            if (src == null)
+            if (Src == null)
                 return false;
-            else
-                return true;
+            return true;
         }
-        public static bool locationexist(int x,int y)
+
+        public static bool Locationexist(int x,int y)
         {
             bool isexist = false;
-            var query = conn.Table<Book>();
+            var query = Conn.Table<Book>();
             foreach (var book in query)
             {
                 if (book.x == x && book.y == y)
@@ -192,40 +188,40 @@ namespace Rasbrary.uni
             }
             return isexist;
         }
-
     }
-    class Function
+
+    internal class Function
     {
-        private static string BookLocationPageName;
-        
-        public async static void ShowMessage(string Message)
+        private static string _bookLocationPageName;
+        public async static void ShowMessage(string message)
         {
-            var dialog = new MessageDialog(Message);
+            var dialog = new MessageDialog(message);
             await dialog.ShowAsync();
         }
-       public static void SetPageName(string Name)
+       public static void SetPageName(string name)
         {
-            BookLocationPageName = Name;
+            _bookLocationPageName = name;
         }
         public static string GetPageName()
         {
-            return BookLocationPageName;
+            return _bookLocationPageName;
         }
-      
     }
-    class Data
+
+    internal class Data
     {
-        public static Book currbook;
+        public static Book Currbook;
         public static Book GetBook()
         {
-            return currbook;
+            return Currbook;
         }
         public static void SetBook(Book book)
         {
-            currbook = book;
+            Currbook = book;
         }
        
     }
+
     public static class StringExtensions
     {
         public static bool Contains(this string str, string substring,
@@ -241,13 +237,11 @@ namespace Rasbrary.uni
             return str.IndexOf(substring, comp) >= 0;
         }
     }
+
     public class BookSearch
     {
-        //You need to substitute this with your own API key.
-        //For more information, visit http://wp.me/paUXZ-TY 
         private static string API_KEY = "AIzaSyCJYdfg4qMeawcpOEWx4wqSqbCLorbmNoc";
-
-        public static BooksService service = new BooksService(new BaseClientService.Initializer
+        public static BooksService Service = new BooksService(new BaseClientService.Initializer
         {
             ApplicationName="우리집 책장지기",
             ApiKey = API_KEY
@@ -255,8 +249,7 @@ namespace Rasbrary.uni
 
         public static async Task<Volume> SearchISBN(string isbn)
         {
-            
-            var result = await service.Volumes.List(isbn).ExecuteAsync();
+            var result = await Service.Volumes.List(isbn).ExecuteAsync();
 
             if (result != null && result.Items != null)
             {
@@ -265,7 +258,6 @@ namespace Rasbrary.uni
             }
             return null;
         }
-
     }
 }
 

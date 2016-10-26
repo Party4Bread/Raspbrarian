@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Google.Apis.Books.v1": "1.18.0.643",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "SQLite.Net-PCL": "3.1.1"
   },

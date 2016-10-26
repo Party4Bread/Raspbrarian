@@ -29,32 +29,25 @@ namespace Rasbrary.uni
         {
             this.InitializeComponent();
         }
-        string[] book;
+
+        string[] _book;
+
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            
-            await GoogleTest(textBox.Text);
+            try
+            {
+                await GoogleTest(textBox.Text);
+            }
+            catch (Exception)
+            {
+                await searchBookNaverapi(textBox.Text, false);
+            }
             //await searchBookNaverapi(textBox.Text, false);
         }
         private async Task searchBookNaverapi(string data,bool quiet)
         {
-            await getResponse(data);
-            if ("nope" != book[0])
-            {
-                textBox1.Text = book[0];
-                textBox2.Text = book[1];
-                textBox3.Text = book[2];
-                image2.Source = new BitmapImage(new Uri(book[3], UriKind.Absolute));
-            }
-            else
-            {
-                if(!quiet)
-                    Function.ShowMessage("책을 수동 등록 해야 해!");
-            }
-        }
-        
-        private async Task getResponse(string isbn)//Task.run() 으로 동기명령수행
-        {
+            string isbn = data;
+
             string URL = "https://openapi.naver.com/v1/search/book.xml",
             clientId = "0WW6gMJM8FBWvjfjBEeD",
             clientpassword = "obvwUCVcli";
@@ -62,29 +55,29 @@ namespace Rasbrary.uni
             WebResponse wRes;
             try
             {
-                Uri uri = new Uri(URL+"?query="+isbn.ToString()); // string 을 Uri 로 형변환
+                Uri uri = new Uri(URL + "?query=" + isbn.ToString()); // string 을 Uri 로 형변환
                 wReq = (HttpWebRequest)WebRequest.Create(uri); // WebRequest 객체 형성 및 HttpWebRequest 로 형변환
                 wReq.Method = "GET"; // 전송 방법 "GET" or "POST" 
                 wReq.Headers["X-Naver-Client-Id"] = clientId;
                 wReq.Headers["X-Naver-Client-Secret"] = clientpassword;
                 using (wRes = await wReq.GetResponseAsync())
-                {                   
+                {
                     Stream respPostStream = wRes.GetResponseStream();
                     StreamReader readerPost = new StreamReader(respPostStream, Encoding.GetEncoding("UTF-8"), true);
                     string response = readerPost.ReadToEnd();
                     try
                     {
                         //9788952210043s
-                        XDocument xd = XDocument.Parse(response);                        
+                        XDocument xd = XDocument.Parse(response);
                         XElement title = xd.Root.Element("channel").Element("item").Element("title");
                         XElement author = xd.Root.Element("channel").Element("item").Element("author");
                         XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
                         XElement image = xd.Root.Element("channel").Element("item").Element("image");
-                        book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
+                        _book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
                     }
                     catch (Exception e)
                     {
-                        book = new string[] { "nope" };
+                        _book = new string[] { "nope" };
                     }
                 }
             }
@@ -94,15 +87,25 @@ namespace Rasbrary.uni
                 {
                     var resp = (HttpWebResponse)ex.Response;
                     if (resp.StatusCode == HttpStatusCode.NotFound)
-                    {                        
+                    {
                     }
-                 
+
                 }
-                else
-                {                    
-                }
-            }            
+            }
+            if ("nope" != _book[0])
+            {
+                textBox1.Text = _book[0];
+                textBox2.Text = _book[1];
+                textBox3.Text = _book[2];
+                image2.Source = new BitmapImage(new Uri(_book[3], UriKind.Absolute));
+            }
+            else
+            {
+                if(!quiet)
+                    Function.ShowMessage("책을 수동 등록 해야 해!");
+            }
         }
+        
         private void textBox_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             textBox.Text = "";
@@ -112,16 +115,16 @@ namespace Rasbrary.uni
             CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
         }
-        private async void confirm(object sender, RoutedEventArgs e)
+        private async void Confirm(object sender, RoutedEventArgs e)
         {
             
             //CoreApplication.Properties.Add("ISBN", textBox.Text);
             if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
             {
-                Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=book[3]});
+                Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=_book[3]});
                 var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
-                dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(checkresponse)));
-                dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(checkresponse)));
+                dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(Checkresponse)));
+                dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(Checkresponse)));
                 await dialog.ShowAsync();
             }
             else
@@ -129,7 +132,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("책 정보가 확인되지 않습니다.");
             }
         }
-        private void checkresponse(IUICommand command)
+        private void Checkresponse(IUICommand command)
         {
             if (command.Label == "확인")
             {
@@ -141,23 +144,6 @@ namespace Rasbrary.uni
         {
             button.IsEnabled = false;
             ReadSize();
-            object isbn;
-            if (CoreApplication.Properties.TryGetValue("ISBN",out isbn))
-            {
-                textBox.Text = isbn.ToString();
-                await getResponse(textBox.Text);
-                if ("nope" != book[0])
-                {
-                    textBox1.Text = book[0];
-                    textBox2.Text = book[1];
-                    textBox3.Text = book[2];
-                    image2.Source = new BitmapImage(new Uri(book[3], UriKind.Absolute));
-                }
-                else
-                {
-                    Function.ShowMessage("책을 수동 등록 해야 합니다.");
-                }
-            }
         }
 
         private async void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -174,21 +160,16 @@ namespace Rasbrary.uni
         private int x;
         private int y;
         Button LastButton;
- 
- 
 
         private void SetLocation()
         {
-           
-           
-            if (!DB.locationexist(x,y))
+            if (!DB.Locationexist(x,y))
             {
-                
                 Book currbook = Data.GetBook();
                 currbook.x = x;
                 currbook.y = y;
                 DB.Insert(currbook);
-                DB.Insert(new Location { x = x, y = y, addr = DB.conn.Table<Location>().Count()+1 });
+                DB.Insert(new Location { x = x, y = y, addr = DB.Conn.Table<Location>().Count()+1 });
                 Function.ShowMessage("등록 완료.");
                 CoreApplication.Properties.Clear();
                 Frame.GoBack();
@@ -202,7 +183,6 @@ namespace Rasbrary.uni
 
         private async void ReadSize()
         {
-            double size = 0.0;
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
             try
             {
@@ -222,9 +202,9 @@ namespace Rasbrary.uni
                     {
                         Button btn = new Button();
                         btn.Content = "";
-                        btn.Name = (i + 1).ToString() + "," + (j + 1).ToString();
+                        btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
-                        btn.Width = size = Math.Round(LocationGrid.Width / (COLUM + 1));
+                        btn.Width =  Math.Round(LocationGrid.Width / (COLUM + 1));
                         btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
@@ -248,8 +228,6 @@ namespace Rasbrary.uni
         }
         private void ItemClick(object sender, RoutedEventArgs e)
         {
-            
-           
             if (LastButton != null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
             Button SelectedButton = (Button)e.OriginalSource;
@@ -262,8 +240,6 @@ namespace Rasbrary.uni
       
         private async Task GoogleTest(string isbn)//Task.run() 으로 동기명령수행
         {
-
-
             var Iresult = BookSearch.SearchISBN(isbn);
             var result = Iresult.Result;
             if (result.VolumeInfo.Title != null && result.VolumeInfo.Authors.FirstOrDefault()!=null&&result.VolumeInfo.Publisher!=null&& result.VolumeInfo.ImageLinks.Small!=null)
@@ -277,82 +253,6 @@ namespace Rasbrary.uni
             {
                 Function.ShowMessage("데이터가 부족합니다!");
             }
-                /*string URL = "https://www.googleapis.com/books/v1/volumes",
-            apikey = "AIzaSyCJYdfg4qMeawcpOEWx4wqSqbCLorbmNoc";
-           
-            HttpWebRequest wReq;
-            WebResponse wRes;
-            try
-            {
-                Uri uri = new Uri(URL + "?q=isbn:" + isbn.ToString()+"&key="+apikey); // string 을 Uri 로 형변환
-                wReq = (HttpWebRequest)WebRequest.Create(uri); // WebRequest 객체 형성 및 HttpWebRequest 로 형변환
-                wReq.Method = "GET"; // 전송 방법 "GET" or "POST" 
-              
-                using (wRes = await wReq.GetResponseAsync())
-                {
-                    Stream respPostStream = wRes.GetResponseStream();
-                    StreamReader readerPost = new StreamReader(respPostStream, Encoding.GetEncoding("UTF-8"), true);
-                    string response = readerPost.ReadToEnd();
-                   
-                    
-                    /* try
-                    {
-                        var json = JsonConvert.DeserializeObject<dynamic>(response);
-                        
-                        if (title != null && author != null && pub != null)
-                            Function.ShowMessage("할당성공!");
-                        if (title==null)
-                        {
-                            Function.ShowMessage(" title 실패....");
-                        }
-                        if (author == null)
-                        {
-                            Function.ShowMessage(" author 실패....");
-                        }
-                        if (pub == null)
-                        {
-                            Function.ShowMessage(" publisher 실패....");
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        Function.ShowMessage("문제발생!");
-                    }
-                    /*
-                    
-                    */
-
-            /*
-            try
-            {
-                //9788952210043s
-                XDocument xd = XDocument.Parse(response);
-                XElement title = xd.Root.Element("channel").Element("item").Element("title");
-                XElement author = xd.Root.Element("channel").Element("item").Element("author");
-                XElement publisher = xd.Root.Element("channel").Element("item").Element("publisher");
-                XElement image = xd.Root.Element("channel").Element("item").Element("image");
-                book = new string[] { title.Value, author.Value, publisher.Value, image.Value };
-            }
-            catch (Exception e)
-            {
-                book = new string[] { "nope" };
-            }
-        }
-    }
-    catch (WebException ex)
-    {
-        if (ex.Status == WebExceptionStatus.ProtocolError && ex.Response != null)
-        {
-            var resp = (HttpWebResponse)ex.Response;
-            if (resp.StatusCode == HttpStatusCode.NotFound)
-            {
-            }
-
-        }
-        else
-        {
-        }
-    }*/
         }
     }
     

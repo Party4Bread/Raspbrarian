@@ -1,8 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Popups;
 using Windows.ApplicationModel.Core;
-using SQLite.Net;
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
 namespace Rasbrary.uni
@@ -56,7 +54,7 @@ namespace Rasbrary.uni
             else
             { 
                 Function.ShowMessage("키워드를 입력하세요.\r\n전체 목록을 표시합니다.");
-                var query = DB.conn.Table<Book>();
+                var query = DB.Conn.Table<Book>();
                 foreach (var item in query)
                 {
                     currentlist.Add(item);
@@ -163,7 +161,7 @@ namespace Rasbrary.uni
                     else
                     {
                       
-                        var query = DB.conn.Table<Book>();
+                        var query = DB.Conn.Table<Book>();
                         foreach (var item in query)
                         {
                             currentlist.Add(item);
@@ -192,7 +190,7 @@ namespace Rasbrary.uni
                 currentlist.Remove(temp);
                 foreach (var g in currentlist)
                     listBox.Items.Add(g.Name);
-                if (temp.image == DB.src)
+                if (temp.image == DB.Src)
                     DB.ShowMainImage();
                 
             }

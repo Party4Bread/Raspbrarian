@@ -1,24 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Reflection;
 using Windows.Storage;
 using System.Xml;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
-using Windows.ApplicationModel.Core;
-using ArduinoSerial;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,10 +21,10 @@ namespace Rasbrary.uni
         private int COLUM;
         private int x;
         private int y;
-        private int inix;
-        private int iniy;
-        Button LastButton;
-        Button OriginButton;
+        private int _inix;
+        private int _iniy;
+        Button _lastButton;
+        Button _originButton;
         public BookLocation()
         {
             InitializeComponent();         
@@ -51,8 +38,8 @@ namespace Rasbrary.uni
             
             btnConfirm.IsEnabled = false;
             Book currbook = Data.GetBook();
-            inix = currbook.x;
-            iniy = currbook.y;
+            _inix = currbook.x;
+            _iniy = currbook.y;
             PageName = textBlock.Text = Function.GetPageName();
 
             if (PageName == "책 자리 보기")
@@ -77,21 +64,20 @@ namespace Rasbrary.uni
         {
          
             if ((string)btnConfirm.Content == "수정하기")
-                
                 ChangeLocation();
         }
 
         private void ChangeLocation()
         {
-            if (!DB.locationexist(x, y))
+            if (!DB.Locationexist(x, y))
             {
                 Book currbook = Data.GetBook();
                 DB.Delete(currbook);
-                DB.Delete(inix,iniy);
+                DB.Delete(_inix,_iniy);
                 currbook.x = x;
                 currbook.y = y;
                 DB.Insert(currbook);
-                DB.Insert(new Location { x = x, y = y, addr = DB.conn.Table<Location>().Count() + 1 });
+                DB.Insert(new Location { x = x, y = y, addr = DB.Conn.Table<Location>().Count() + 1 });
                 Function.ShowMessage("수정 완료.");
                 Page_Loaded(null, null);
             }
@@ -103,7 +89,6 @@ namespace Rasbrary.uni
 
         private async void ReadSize()
         {
-            double size=0.0;
             StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("prefs.xml", CreationCollisionOption.OpenIfExists);
             try
             {
@@ -124,16 +109,16 @@ namespace Rasbrary.uni
                     {
                         Button btn = new Button();
                         btn.Content = "";
-                        btn.Name = (i + 1).ToString() + "," + (j + 1).ToString();
+                        btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
-                        btn.Width = size =Math.Round(LocationGrid.Width / (COLUM+1));
+                        btn.Width = Math.Round(LocationGrid.Width / (COLUM+1));
                         btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
                             if ((i + 1) == x && (j + 1) == y)
                             {
                                 btn.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
-                                OriginButton = btn;
+                                _originButton = btn;
                             }
                         }
                         LocationGrid.Items.Add(btn);
@@ -153,17 +138,17 @@ namespace Rasbrary.uni
             btnConfirm.IsEnabled = true;
             txtX.Text = "행:";
             txtY.Text = "열:";
-            if(LastButton!=null)
-                LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
-            Button SelectedButton = (Button)e.OriginalSource;
-            SelectedButton.Background= new SolidColorBrush(Color.FromArgb(132, 27, 186, 154));
-            OriginButton.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
-            string[] Point=SelectedButton.Name.Split(',');
-            x = int.Parse(Point[0]);
-            y = int.Parse(Point[1]);
-            txtX.Text += Point[0];
-            txtY.Text += Point[1];
-            LastButton = SelectedButton;
+            if(_lastButton!=null)
+                _lastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
+            Button selectedButton = (Button)e.OriginalSource;
+            selectedButton.Background= new SolidColorBrush(Color.FromArgb(132, 27, 186, 154));
+            _originButton.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+            string[] point=selectedButton.Name.Split(',');
+            x = int.Parse(point[0]);
+            y = int.Parse(point[1]);
+            txtX.Text += point[0];
+            txtY.Text += point[1];
+            _lastButton = selectedButton;
         }
     }
 }

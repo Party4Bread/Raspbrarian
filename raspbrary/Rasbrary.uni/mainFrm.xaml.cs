@@ -43,15 +43,15 @@ namespace Rasbrary.uni
         {
             try
             {
-                DB.conn.CreateTable<Book>();
-                DB.conn.CreateTable<Location>();
-                //DB.conn.DeleteAll<Location>(); //- 데이터 삭제용 임시 코드
-                // DB.conn.DeleteAll<Book>();
+                DB.Conn.CreateTable<Book>();
+                DB.Conn.CreateTable<Location>();
+                //DB.Conn.DeleteAll<Location>(); //- 데이터 삭제용 임시 코드
+                // DB.Conn.DeleteAll<Book>();
                 if (!DB.HasMainImage())
                 {
-                    DB.src = DB.ShowMainImage();
+                    DB.Src = DB.ShowMainImage();
                 }
-                image.Source = new BitmapImage(new Uri(DB.src, UriKind.Absolute));
+                image.Source = new BitmapImage(new Uri(DB.Src, UriKind.Absolute));
             }
             catch (Exception eeee) { }       
         }   
