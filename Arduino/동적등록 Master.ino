@@ -24,10 +24,10 @@ void loop() {
    }
    Wire.endTransmission();
 
-   Wire.beginTransmission(Slave);{
+   Wire.beginTransmission(Slave);
     while(Wire.available()>1){
       char b = Wire.read();
       Serial.print(b);
     }
    }
-}
+
