@@ -43,27 +43,30 @@ namespace ArduinoSerial
 
         private async void Listen(Action<string> onReceive)
         {
-            try
+            while (true)
             {
-                if (serialPort != null)
+                try
                 {
-                    dataReaderObject = new DataReader(serialPort.InputStream);
-                    while (true)
+                    if (serialPort != null)
                     {
-                        await ReadAsync(ReadCancellationTokenSource.Token, onReceive);
+                        dataReaderObject = new DataReader(serialPort.InputStream);
+                        while (true)
+                        {
+                            await ReadAsync(ReadCancellationTokenSource.Token, onReceive);
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                CloseDevice();
-            }
-            finally
-            {
-                if (dataReaderObject != null)
+                catch (Exception ex)
                 {
-                    dataReaderObject.DetachStream();
-                    dataReaderObject = null;
+                    CloseDevice();
+                }
+                finally
+                {
+                    if (dataReaderObject != null)
+                    {
+                        dataReaderObject.DetachStream();
+                        dataReaderObject = null;
+                    }
                 }
             }
         }

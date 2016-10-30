@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Media;
 using Windows.Storage;
 using System.Xml;
 using Windows.UI;
+using ArduinoSerial;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,9 +34,9 @@ namespace Rasbrary.uni
         {           
             Frame.GoBack();         
         }
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             btnConfirm.IsEnabled = false;
             Book currbook = Data.GetBook();
             _inix = currbook.x;
@@ -46,18 +47,16 @@ namespace Rasbrary.uni
             {
                 x = currbook.x;
                 y = currbook.y;
-                txtX.Text = "행:"+x.ToString();
-                txtY.Text = "열:"+y.ToString();
+                txtX.Text = "행:" + x.ToString();
+                txtY.Text = "열:" + y.ToString();
 
                 btnConfirm.Content = "수정하기";
             }
             ReadSize();
-            /* 
-             Arduino head = new Arduino();
-             head.connect(null);
-             int address=0;//Todo: get address by coordnation
-             await head.WriteAsync(address.ToString());
-             */
+            Arduino head = new Arduino();
+            head.connect(null);
+            int address = DB.FindAddress(x, y).addr;
+            await head.WriteAsync("ledon "+address);
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)

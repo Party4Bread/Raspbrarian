@@ -8,6 +8,7 @@ using Google.Apis.Books.v1;
 using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using System.Linq;
+using SQLite.Net.Attributes;
 
 namespace Rasbrary.uni
 {
@@ -21,12 +22,45 @@ namespace Rasbrary.uni
         public int x { get; set; }
         public int y { get; set; }
         public string image { get; set; }
+
+        public Book()
+        {
+            ISBN = null;
+            Name = null;
+            Auther = null;
+            Publisher = null;
+            x = 0;
+            y = 0;
+            image = null;
+        }
+        public Book(string ISBN,string Name,string Auther,string Publisher, int x, int y,string image)
+        {
+            this.x = x;
+            this.y = y;
+            this.ISBN = ISBN;
+            this.Name = Name;
+            this.Auther = Auther;
+            this.Publisher = Publisher;
+            this.image = image;
+        }
     }
     class Location
     {
         public int x { get; set; }
         public int y { get; set; }
         public int addr { get; set; }
+        public Location()
+        {
+            x = 0;
+            y = 0;
+            addr = 0;
+        }
+        public Location(int x,int y,int addr)
+        {
+            this.x = x;
+            this.y = y;
+            this.addr = addr;
+        }
     }
     #endregion
     /*
@@ -58,7 +92,6 @@ namespace Rasbrary.uni
     */
 
     class DB
-
     {
         public static string Src;
         public static string DBpath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path,"db.sqlite");
@@ -76,6 +109,20 @@ namespace Rasbrary.uni
                 }
             }
             return list;
+        }
+
+        public static Location FindAddress(int x,int y)
+        {
+            var query = Conn.Table<Location>();
+            Location addr=new Location();
+            foreach (var message in query)
+            {
+                if (message.x==x&&message.y==y)
+                {
+                    addr = message;
+                }
+            }
+            return addr;
         }
 
         public static List<Book> FindbyAuther(string aut)

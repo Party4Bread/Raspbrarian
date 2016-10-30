@@ -22,6 +22,8 @@
         <Button x:Name="button1" Content="적용" HorizontalAlignment="Left" Margin="92,382,0,0" VerticalAlignment="Top" Click="button1_Click" Height="100" Width="200" FontSize="45"/>
         <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,668,0,0" VerticalAlignment="Stretch" Click="button2_Click" Width="150" Height="100" FontSize="40"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="28,42,0,0" TextWrapping="Wrap" Text="■ 책 자리표 설정" VerticalAlignment="Top" FontSize="50"/>
+        <Button x:Name="button4" Content="DB백업" HorizontalAlignment="Left" Margin="735,640,0,0" VerticalAlignment="Top" Click="button4_Click" Height="128" Width="289" FontSize="48"/>
+        <Button x:Name="button3" Content="DB복구" HorizontalAlignment="Left" Margin="441,640,0,0" VerticalAlignment="Top" Height="128" Width="289" FontSize="48" Click="button3_Click"/>
 
     </Grid>
 </Page>

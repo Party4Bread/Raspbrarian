@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rasbrary.uni", "Rasbrary.un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoSerial", "ArduinoSerial\ArduinoSerial.csproj", "{08C390F6-CD2C-4A52-861E-188B23FC390A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{382CF331-F1DB-4BED-9100-1A6D1ABC0859}"
+	ProjectSection(SolutionItems) = preProject
+		..\Arduino\동적등록 Master.ino = ..\Arduino\동적등록 Master.ino
+		..\Arduino\동적등록 Slave.ino = ..\Arduino\동적등록 Slave.ino
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
