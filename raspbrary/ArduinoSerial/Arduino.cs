@@ -14,14 +14,14 @@ namespace ArduinoSerial
         DataWriter dataWriteObject = null;
         DataReader dataReaderObject = null;
         private ObservableCollection<DeviceInformation> listOfDevices;
-        private CancellationTokenSource ReadCancellationTokenSource;
+        public CancellationTokenSource ReadCancellationTokenSource;
         private Action<string> onRe;
-        public async void connect(Action<string> onReceive)
+        public async         Task
+connect()
         {
             listOfDevices = new ObservableCollection<DeviceInformation>();
             ReadCancellationTokenSource = new CancellationTokenSource();
             DeviceInformationCollection dis;
-            onRe = onReceive;
             try
             {
                 string aqs = SerialDevice.GetDeviceSelector();
@@ -34,7 +34,6 @@ namespace ArduinoSerial
                 serialPort.Parity = SerialParity.None;
                 serialPort.StopBits = SerialStopBitCount.One;
                 serialPort.DataBits = 8;
-                Listen(onReceive);
             }
             catch (Exception ex)
             {
@@ -52,7 +51,7 @@ namespace ArduinoSerial
                         dataReaderObject = new DataReader(serialPort.InputStream);
                         while (true)
                         {
-                            await ReadAsync(ReadCancellationTokenSource.Token, onReceive);
+                            await ReadAsync(ReadCancellationTokenSource.Token);
                         }
                     }
                 }
@@ -79,7 +78,6 @@ namespace ArduinoSerial
             }
             serialPort = null;
             listOfDevices.Clear();
-            connect(onRe);
         }
 
         public async Task WriteAsync(string data)
@@ -91,8 +89,9 @@ namespace ArduinoSerial
             uint bytesWritten = await storeAsyncTask;
         }
 
-        private async Task ReadAsync(CancellationToken cancellationToken,Action<string> onRead)
+        public async Task<string> ReadAsync(CancellationToken cancellationToken)
         {
+            dataReaderObject = new DataReader(serialPort.InputStream);
             Task<uint> loadAsyncTask;
             uint ReadBufferLength = 1024;
             cancellationToken.ThrowIfCancellationRequested();
@@ -100,9 +99,12 @@ namespace ArduinoSerial
             loadAsyncTask = dataReaderObject.LoadAsync(ReadBufferLength).AsTask(cancellationToken);
             // Launch the task and wait
             uint bytesRead = await loadAsyncTask;
-            if (bytesRead > 0)
+            while (true)
             {
-                onRead(dataReaderObject.ReadString(bytesRead));
+                if (bytesRead > 0)
+                {
+                    return dataReaderObject.ReadString(bytesRead);
+                }
             }
         }
     }

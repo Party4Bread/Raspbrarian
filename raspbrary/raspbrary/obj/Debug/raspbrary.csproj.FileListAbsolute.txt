@@ -26,17 +26,6 @@ C:\Users\Sunrin\Downloads\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbr
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.exe
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe.config
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.exe
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.pdb
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.exe
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\bin\Debug\raspbrary.pdb
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csprojResolveAssemblyReference.cache
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form1.resources
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form2.resources
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Properties.Resources.resources
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csproj.GenerateResource.Cache
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.starter.resources
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.exe
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\bin\Debug\raspbrary.pdb
 H:\정보영재\Raspbrarian-master\Raspbrarian-master\raspbrary\raspbrary\obj\Debug\raspbrary.csprojResolveAssemblyReference.cache
@@ -78,4 +67,3 @@ C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Properties.Resources.resources
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.starter.resources
 C:\Users\BREADY\Documents\dd\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.csproj.GenerateResource.Cache
-C:\Users\BREADY\Documents\GitHub\Raspbrarian\raspbrary\raspbrary\obj\Debug\raspbrary.Form3.resources

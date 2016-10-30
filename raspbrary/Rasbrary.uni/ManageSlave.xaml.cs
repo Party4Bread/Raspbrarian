@@ -35,7 +35,6 @@ namespace Rasbrary.uni
         private int newaddr;
         Button LastButton;
         Arduino test;
-        Action<string> Read;
         private async void ReadSize()
         {
             var query = DB.Conn.Table<Location>();
@@ -96,20 +95,19 @@ namespace Rasbrary.uni
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            
             Frame.GoBack();
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            test = new Arduino();
             ReadSize();
-            Read += ControlSlaveAsync;
         }
         private async void RequestSlaveAsync(object sender,RoutedEventArgs e)
-        { 
+        {
+            test = new Arduino();
+            await test.connect();
             await test.WriteAsync("MON");
-            await test.ReadAsync(test.ReadCancellationTokenSource.Token, Read);
+            ControlSlaveAsync(await test.ReadAsync(test.ReadCancellationTokenSource.Token));
         }
         private async void ControlSlaveAsync(string param)
         {
@@ -117,12 +115,13 @@ namespace Rasbrary.uni
             {
                 newaddr = DB.Conn.Table<Location>().Count() + 1;
                 await test.WriteAsync(newaddr.ToString());
-                await test.ReadAsync(test.ReadCancellationTokenSource.Token,Read);
+                ControlSlaveAsync(await test.ReadAsync(test.ReadCancellationTokenSource.Token));
             }
             if(param=="OK")
             {
                 DB.Insert(new Location { x = x, y = y, addr = newaddr });
-                Function.ShowMessage("등록 성공!");
+                //Function.ShowMessage("등록 성공!");
+                button2.Content = "seicasf";
             }
             if(param=="FAIL")
             {
