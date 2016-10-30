@@ -166,5 +166,10 @@ namespace Rasbrary.uni
                 }
             }
         }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ManageSlave));
+        }
     }
 }

@@ -54,7 +54,7 @@ namespace Rasbrary.uni
             }
             ReadSize();
             Arduino head = new Arduino();
-            head.connect(null);
+            head.connect();
             int address = DB.FindAddress(x, y).addr;
             await head.WriteAsync("ledon "+address);
         }
@@ -76,7 +76,7 @@ namespace Rasbrary.uni
                 currbook.x = x;
                 currbook.y = y;
                 DB.Insert(currbook);
-                DB.Insert(new Location { x = x, y = y, addr = DB.Conn.Table<Location>().Count() + 1 });
+              
                 Function.ShowMessage("수정 완료.");
                 Page_Loaded(null, null);
             }
@@ -110,7 +110,7 @@ namespace Rasbrary.uni
                         btn.Content = "";
                         btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
-                        btn.Width = Math.Round(LocationGrid.Width / (COLUM+1));
+                        btn.Width = Math.Round(LocationGrid.Width/(COLUM+1));
                         btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {

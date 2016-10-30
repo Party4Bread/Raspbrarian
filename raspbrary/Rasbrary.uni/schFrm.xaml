@@ -13,7 +13,7 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="95" FontSize="40" RenderTransformOrigin="0.408,-0.126">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="95" FontSize="35" RenderTransformOrigin="0.408,-0.126">
             <ComboBoxItem Content="제목"/>
             <ComboBoxItem Content="저자" />
             <ComboBoxItem Content="출판사"/>
@@ -23,7 +23,7 @@
         <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="894,0,0,0" Height="95" Width="130" Click="button_Click" FontSize="45"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="500" Margin="0,268,0,0" VerticalAlignment="Top" Width="700" SelectionChanged="listBox_SelectionChanged" FontSize="30"/>
         <Rectangle HorizontalAlignment="Left" Height="105" Margin="0,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="1024" Fill="#FF0869DC" StrokeThickness="0"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="2,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="1022" FontSize="76" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="2,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="1022" FontSize="70" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
         	<Run Text="책제목"/>
         	<Run Text=":"/>
         </TextBlock>

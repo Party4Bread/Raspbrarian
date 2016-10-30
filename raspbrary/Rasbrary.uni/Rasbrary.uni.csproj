@@ -32,7 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <Optimize>false</Optimize>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -45,7 +45,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\x86\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -57,7 +57,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\ARM\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <OutputPath>bin\ARM\Release\</OutputPath>
@@ -70,7 +70,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\ARM\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\ARM\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -82,7 +82,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\x64\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -95,7 +95,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <IntermediateOutputPath>C:\Users\BREADY\AppData\Local\Temp\vs6D4.tmp\x64\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\bule3\AppData\Local\Temp\vsCEF2.tmp\x64\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
@@ -109,6 +109,9 @@
     <Compile Include="Book.cs" />
     <Compile Include="BookLocation.xaml.cs">
       <DependentUpon>BookLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSlave.xaml.cs">
+      <DependentUpon>ManageSlave.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="mainFrm.xaml.cs">
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="mainFrm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageSlave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
