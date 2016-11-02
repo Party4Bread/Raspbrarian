@@ -53,12 +53,27 @@ namespace Rasbrary.uni
                 }
                 image.Source = new BitmapImage(new Uri(DB.Src, UriKind.Absolute));
             }
-            catch (Exception eeee) { }       
+            catch (Exception eeee) { } 
         }   
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
             CoreApplication.Exit();
+        }
+
+        private void btn_sch_Holding(object sender, Windows.UI.Xaml.Input.HoldingRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(schFrm));
+        }
+
+        private void btn_reg_Holding(object sender, Windows.UI.Xaml.Input.HoldingRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(regFrm));
+        }
+
+        private void button_set_Holding(object sender, Windows.UI.Xaml.Input.HoldingRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(settingFrm));
         }
     }
 }

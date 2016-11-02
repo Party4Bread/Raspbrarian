@@ -171,5 +171,10 @@ namespace Rasbrary.uni
         {
             Frame.Navigate(typeof(ManageSlave));
         }
+
+        private void button_Holding(object sender, Windows.UI.Xaml.Input.HoldingRoutedEventArgs e)
+        {
+
+        }
     }
 }

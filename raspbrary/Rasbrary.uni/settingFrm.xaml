@@ -15,7 +15,7 @@
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="560,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Text="가로 (행):" Height="63"/>
 
 
-        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="472,180,0,0" Width="40" Height="34" Click="button_Click" FontSize="20"/>
+        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="472,180,0,0" Width="40" Height="34" Click="button_Click" FontSize="20" Holding="button_Holding"/>
         <Button x:Name="button_Copy" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="472,218,0,0" Width="40" Height="35" Click="button_Copy_Click" FontSize="20"/>
         <Button x:Name="button_Copy1" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="932,180,0,0" Height="34" Width="40" Click="button_Copy1_Click" FontSize="20"/>
         <Button x:Name="button_Copy2" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="932,222,0,0" Height="34" Width="40" Click="button_Copy2_Click" FontSize="20"/>

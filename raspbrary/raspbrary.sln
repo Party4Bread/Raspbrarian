@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoSerial", "ArduinoSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{382CF331-F1DB-4BED-9100-1A6D1ABC0859}"
 	ProjectSection(SolutionItems) = preProject
+		Head1.ino = Head1.ino
 		..\Arduino\동적등록 Master.ino = ..\Arduino\동적등록 Master.ino
 		..\Arduino\동적등록 Slave.ino = ..\Arduino\동적등록 Slave.ino
 	EndProjectSection

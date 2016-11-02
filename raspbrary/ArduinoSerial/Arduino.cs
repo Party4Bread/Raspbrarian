@@ -87,6 +87,7 @@ connect()
             dataWriteObject.WriteString(data);
             storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
             uint bytesWritten = await storeAsyncTask;
+            dataWriteObject.DetachStream();
         }
 
         public async Task<string> ReadAsync(CancellationToken cancellationToken)
@@ -103,9 +104,12 @@ connect()
             {
                 if (bytesRead > 0)
                 {
-                    return dataReaderObject.ReadString(bytesRead);
+                    string result = dataReaderObject.ReadString(bytesRead);
+                    dataReaderObject.DetachStream();
+                    return result;
                 }
             }
+            
         }
     }
 }
