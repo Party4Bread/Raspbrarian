@@ -6,11 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Width="1024"
-    Height="768"
+    Width="1280"
+    Height="800"
  Loaded="Page_Loaded">
 
-    <Grid Background="Gray" Width="1024" Height="768">
+    <Grid Background="Gray" Width="1280" Height="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="293*"/>
             <RowDefinition Height="67*"/>
@@ -20,12 +20,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="18,16,0,0" TextWrapping="Wrap" Text="■ 책 자리표"  VerticalAlignment="Top" FontSize="55" Grid.Column="1" Height="79" Width="376" />
-        <Button x:Name="btnConfirm" Content="확인" HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="170" Height="85" RenderTransformOrigin="0.411,0.507" FontSize="40" Click="btnConfirm_Click" Background="#33000000" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Button x:Name="btnexit" Content="닫기" HorizontalAlignment="Left" Margin="224,36,0,0" VerticalAlignment="Top" Width="170" Height="85" FontSize="40" Click="btnexit_Click" Grid.Column="1" Grid.Row="1"/>
-        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="410,96,0,0" VerticalAlignment="Top" Width="600" Height="650" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True" Grid.Column="1" Grid.RowSpan="2">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="54,34,0,0" TextWrapping="Wrap" Text="■ 책 자리표"  VerticalAlignment="Top" FontSize="60" Grid.Column="1" Height="79" Width="376" />
+        <Button x:Name="btnConfirm" Content="확인" HorizontalAlignment="Left" Margin="28,21,0,0" VerticalAlignment="Top" Width="200" Height="100" RenderTransformOrigin="0.411,0.507" FontSize="45" Click="btnConfirm_Click" Background="#33000000" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button x:Name="btnexit" Content="닫기" HorizontalAlignment="Left" Margin="257,21,0,0" VerticalAlignment="Top" Width="200" Height="100" FontSize="45" Click="btnexit_Click" Grid.Column="1" Grid.Row="1"/>
+        <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="470,122,0,0" VerticalAlignment="Top" Width="800" Height="650" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True" Grid.Column="1" Grid.RowSpan="2">
         </GridView>
-        <TextBlock x:Name="txtX" HorizontalAlignment="Left" Margin="24,173,0,0" TextWrapping="Wrap" Text="행:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="98" Width="229" />
-        <TextBlock x:Name="txtY" HorizontalAlignment="Left" Margin="24,382,0,0" TextWrapping="Wrap" Text="열:"  VerticalAlignment="Top" FontSize="60" Grid.ColumnSpan="2" Height="77" Width="229" />
+        <TextBlock x:Name="txtX" HorizontalAlignment="Left" Margin="54,201,0,0" TextWrapping="Wrap" Text="행:"  VerticalAlignment="Top" FontSize="70" Grid.ColumnSpan="2" Height="98" Width="229" />
+        <TextBlock x:Name="txtY" HorizontalAlignment="Left" Margin="54,396,0,0" TextWrapping="Wrap" Text="열:"  VerticalAlignment="Top" FontSize="70" Grid.ColumnSpan="2" Height="93" Width="229" />
     </Grid>
 </Page>
