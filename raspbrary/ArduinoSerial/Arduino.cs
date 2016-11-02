@@ -16,27 +16,29 @@ namespace ArduinoSerial
         private ObservableCollection<DeviceInformation> listOfDevices;
         public CancellationTokenSource ReadCancellationTokenSource;
         private Action<string> onRe;
-        public async         Task
-connect()
+        public async Task connect()
         {
-            listOfDevices = new ObservableCollection<DeviceInformation>();
-            ReadCancellationTokenSource = new CancellationTokenSource();
-            DeviceInformationCollection dis;
-            try
+            if (serialPort == null)
             {
-                string aqs = SerialDevice.GetDeviceSelector();
-                dis = await DeviceInformation.FindAllAsync(aqs);
-                DeviceInformation entry = dis[0];
-                serialPort = await SerialDevice.FromIdAsync(entry.Id);
-                serialPort.WriteTimeout = TimeSpan.FromMilliseconds(1000);
-                serialPort.ReadTimeout = TimeSpan.FromMilliseconds(1000);
-                serialPort.BaudRate = 9600;
-                serialPort.Parity = SerialParity.None;
-                serialPort.StopBits = SerialStopBitCount.One;
-                serialPort.DataBits = 8;
-            }
-            catch (Exception ex)
-            {
+                listOfDevices = new ObservableCollection<DeviceInformation>();
+                ReadCancellationTokenSource = new CancellationTokenSource();
+                DeviceInformationCollection dis;
+                try
+                {
+                    string aqs = SerialDevice.GetDeviceSelector();
+                    dis = await DeviceInformation.FindAllAsync(aqs);
+                    DeviceInformation entry = dis[0];
+                    serialPort = await SerialDevice.FromIdAsync(entry.Id);
+                    serialPort.WriteTimeout = TimeSpan.FromMilliseconds(2000);
+                    serialPort.ReadTimeout = TimeSpan.FromMilliseconds(2000);
+                    serialPort.BaudRate = 9600;
+                    serialPort.Parity = SerialParity.None;
+                    serialPort.StopBits = SerialStopBitCount.One;
+                    serialPort.DataBits = 8;
+                }
+                catch(Exception ex)
+                {
+                }
             }
         }
 
@@ -82,12 +84,12 @@ connect()
 
         public async Task WriteAsync(string data)
         {
-            dataWriteObject = new DataWriter(serialPort.OutputStream);
+            DataWriter serialDataWriter = new DataWriter(serialPort.OutputStream);
             Task<uint> storeAsyncTask;
-            dataWriteObject.WriteString(data);
-            storeAsyncTask = dataWriteObject.StoreAsync().AsTask();
+            serialDataWriter.WriteString(data);
+            storeAsyncTask = serialDataWriter.StoreAsync().AsTask();
             uint bytesWritten = await storeAsyncTask;
-            dataWriteObject.DetachStream();
+            serialDataWriter.DetachStream();
         }
 
         public async Task<string> ReadAsync(CancellationToken cancellationToken)
