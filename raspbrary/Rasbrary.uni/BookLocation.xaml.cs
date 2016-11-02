@@ -7,6 +7,7 @@ using Windows.Storage;
 using System.Xml;
 using Windows.UI;
 using ArduinoSerial;
+using Windows.UI.Xaml.Input;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,7 +31,7 @@ namespace Rasbrary.uni
         {
             InitializeComponent();         
         }
-        private void btnexit_Click(object sender, RoutedEventArgs e)
+        private void btnexit_Click(object sender, HoldingRoutedEventArgs e)
         {           
             Frame.GoBack();         
         }
@@ -59,7 +60,7 @@ namespace Rasbrary.uni
             await head.WriteAsync("ledon "+address);
         }
 
-        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        private void btnConfirm_Click(object sender, HoldingRoutedEventArgs e)
         {
          
             if ((string)btnConfirm.Content == "수정하기")
@@ -111,7 +112,7 @@ namespace Rasbrary.uni
                         btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
                         btn.Width = Math.Round(LocationGrid.Width/(COLUM+1));
-                        btn.Click += ItemClick;
+                        btn.Holding += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
                             if ((i + 1) == x && (j + 1) == y)
@@ -132,7 +133,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다."+"\r\n"+e.Message);
             }
         }
-        private void ItemClick(object sender, RoutedEventArgs e)
+        private void ItemClick(object sender, HoldingRoutedEventArgs e)
         {
             btnConfirm.IsEnabled = true;
             txtX.Text = "행:";

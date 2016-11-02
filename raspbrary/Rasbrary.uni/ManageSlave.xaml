@@ -12,7 +12,7 @@
     <Grid  Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Loaded="Grid_Loaded" Height="800" Width="1280">
         <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="86,125,0,0" VerticalAlignment="Top" Width="800" Height="550" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="0,0,0,1"  IsItemClickEnabled="True"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="33,19,0,0" TextWrapping="Wrap" Text="■ LED DEVICE 설정" VerticalAlignment="Top" FontSize="60"/>
-        <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,680,0,0" VerticalAlignment="Stretch" Click="button2_Click" Width="220" Height="120" FontSize="50" RenderTransformOrigin="0.472,1.145"/>
-        <Button x:Name="button2_Copy" Content="등록" HorizontalAlignment="Left" Margin="923,575,0,125" VerticalAlignment="Stretch" Click="RequestSlaveAsync" Width="319" Height="100" FontSize="50"/>
+        <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,680,0,0" VerticalAlignment="Stretch" Holding="button2_Click" Width="220" Height="120" FontSize="50" RenderTransformOrigin="0.472,1.145"/>
+        <Button x:Name="button2_Copy" Content="등록" HorizontalAlignment="Left" Margin="923,575,0,125" VerticalAlignment="Stretch" Holding="RequestSlaveAsync" Width="319" Height="100" FontSize="50"/>
     </Grid>
 </Page>

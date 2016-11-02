@@ -60,7 +60,7 @@ namespace Rasbrary.uni
                         btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
                         btn.Width = Math.Round(LocationGrid.Width / (COLUM + 1));
-                        btn.Click += ItemClick;
+                        btn.Holding += ItemClick;
                         foreach (var message in query)
                         {
                             if ((i + 1) == message.x && (j + 1) == message.y)
@@ -81,7 +81,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
             }
         }
-        private void ItemClick(object sender, RoutedEventArgs e)
+        private void ItemClick(object sender, HoldingRoutedEventArgs e)
         {
             if (LastButton != null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
@@ -93,7 +93,7 @@ namespace Rasbrary.uni
             LastButton = SelectedButton;
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void button2_Click(object sender, HoldingRoutedEventArgs e)
         {
             Frame.GoBack();
         }
@@ -102,13 +102,16 @@ namespace Rasbrary.uni
         {
             ReadSize();
         }
-        private async void RequestSlaveAsync(object sender,RoutedEventArgs e)
+        private async void RequestSlaveAsync(object sender,HoldingRoutedEventArgs e)
         {
+            /*
             test = new Arduino();
             await test.connect();
             await test.WriteAsync("MON");
             ControlSlaveAsync(await test.ReadAsync(test.ReadCancellationTokenSource.Token));
+            */
         }
+        /*
         private async void ControlSlaveAsync(string param)
         {
             if (param == "NEW")
@@ -127,6 +130,6 @@ namespace Rasbrary.uni
             {
                 Function.ShowMessage("등록 실패...");
             }
-        }
+        }*/
     }
 }

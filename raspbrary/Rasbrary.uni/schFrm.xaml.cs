@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml.Input;
 // 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
 
 namespace Rasbrary.uni
@@ -15,7 +16,7 @@ namespace Rasbrary.uni
            InitializeComponent();
         }
         System.Collections.Generic.List<Book> currentlist = new System.Collections.Generic.List<Book>();
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, HoldingRoutedEventArgs e)
         {
             if (textBox.Text != "")
             {
@@ -68,7 +69,7 @@ namespace Rasbrary.uni
 
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, HoldingRoutedEventArgs e)
         {
             CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
@@ -100,7 +101,7 @@ namespace Rasbrary.uni
             }
         }     
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void button2_Click(object sender, HoldingRoutedEventArgs e)
         {
             if (listBox.SelectedIndex != -1)
             {
@@ -180,7 +181,7 @@ namespace Rasbrary.uni
             }
         }
 
-        private void btndel_Click(object sender, RoutedEventArgs e)
+        private void btndel_Click(object sender, HoldingRoutedEventArgs e)
         {
             if (listBox.SelectedIndex != -1)
             {

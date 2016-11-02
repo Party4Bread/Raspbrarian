@@ -31,8 +31,13 @@ namespace Rasbrary.uni
         }
 
         string[] _book;
-
-        private async void button_Click(object sender, RoutedEventArgs e)
+        public static string PageName;
+        private int ROW;
+        private int COLUM;
+        private int x;
+        private int y;
+        Button LastButton;
+        private async void btnreg_Holding(object sender, HoldingRoutedEventArgs e)
         {
             try
             {
@@ -110,12 +115,12 @@ namespace Rasbrary.uni
         {
             textBox.Text = "";
         }      
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void button2_Click(object sender, HoldingRoutedEventArgs e)
         {
             CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
         }
-        private async void Confirm(object sender, RoutedEventArgs e)
+        private async void Confirm(object sender, HoldingRoutedEventArgs e)
         {
             
             //CoreApplication.Properties.Add("ISBN", textBox.Text);
@@ -154,12 +159,7 @@ namespace Rasbrary.uni
                 await searchBookNaverapi(textBox.Text, true);
             }
         }
-        public static string PageName;
-        private int ROW;
-        private int COLUM;
-        private int x;
-        private int y;
-        Button LastButton;
+
 
         private void SetLocation()
         {
@@ -205,7 +205,7 @@ namespace Rasbrary.uni
                         btn.Name = (i + 1) + "," + (j + 1);
                         btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
                         btn.Width =  Math.Round(LocationGrid.Width / (COLUM + 1));
-                        btn.Click += ItemClick;
+                        btn.Holding += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
                             if ((i + 1) == x && (j + 1) == y)
@@ -226,7 +226,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
             }
         }
-        private void ItemClick(object sender, RoutedEventArgs e)
+        private void ItemClick(object sender, HoldingRoutedEventArgs e)
         {
             if (LastButton != null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
@@ -254,6 +254,8 @@ namespace Rasbrary.uni
                 Function.ShowMessage("데이터가 부족합니다!");
             }
         }
+
+       
     }
     
 }
