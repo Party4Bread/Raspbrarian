@@ -65,7 +65,7 @@ namespace Rasbrary.uni
                         {
                             if ((i + 1) == message.x && (j + 1) == message.y)
                             {
-                                btn.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+                                btn.Background = new SolidColorBrush(Color.FromArgb(255, 45, 69, 91));
                                 btn.IsEnabled = false;
                             }
                         }
@@ -87,6 +87,9 @@ namespace Rasbrary.uni
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
             Button SelectedButton = (Button)e.OriginalSource;
             SelectedButton.Background = new SolidColorBrush(Color.FromArgb(132, 15, 29, 169));
+            txtl.Text += "(";
+            txtl.Text += SelectedButton.Name;
+            txtl.Text += ")";
             string[] Point = SelectedButton.Name.Split(',');
             x = int.Parse(Point[0]);
             y = int.Parse(Point[1]);
@@ -101,35 +104,32 @@ namespace Rasbrary.uni
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             ReadSize();
+            for(int i=1;i<33;i++)
+            {
+                comboBox.Items.Add(i);
+            }
+                    
+                   
         }
-        private async void RequestSlaveAsync(object sender,HoldingRoutedEventArgs e)
+        private void ManageLED(object sender,HoldingRoutedEventArgs e)
         {
-            /*
-            test = new Arduino();
-            await test.connect();
-            await test.WriteAsync("MON");
-            ControlSlaveAsync(await test.ReadAsync(test.ReadCancellationTokenSource.Token));
-            */
+            int a = int.Parse(comboBox.SelectedItem.ToString());
+            var query = DB.Conn.Table<Location>();
+            foreach (var location in query)
+            {
+                if (location.x == x && location.y == y&&location.addr==a)
+                {
+                    DB.Delete(x,y);
+                }
+
+            }
+           
+            DB.Conn.Insert(new Location {x=x,y=y,addr=a});
         }
-        /*
-        private async void ControlSlaveAsync(string param)
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (param == "NEW")
-            {
-                newaddr = DB.Conn.Table<Location>().Count() + 1;
-                await test.WriteAsync(newaddr.ToString());
-                ControlSlaveAsync(await test.ReadAsync(test.ReadCancellationTokenSource.Token));
-            }
-            if(param=="OK")
-            {
-                DB.Insert(new Location { x = x, y = y, addr = newaddr });
-                //Function.ShowMessage("등록 성공!");
-                button2.Content = "seicasf";
-            }
-            if(param=="FAIL")
-            {
-                Function.ShowMessage("등록 실패...");
-            }
-        }*/
+
+        }
     }
 }

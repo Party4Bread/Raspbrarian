@@ -24,5 +24,6 @@
         <GridView x:Name="LocationGrid" HorizontalAlignment="Left" Margin="519,459,0,0" VerticalAlignment="Top" Width="600" Height="340" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" IsItemClickEnabled="True"/>
         <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="521,401,0,0" TextWrapping="Wrap" Text="책 자리 선택" VerticalAlignment="Top" FontSize="45" Height="52" Width="156"/>
 
+
     </Grid>
 </Page>

@@ -60,7 +60,7 @@ namespace Rasbrary.uni
             await head.WriteAsync("ledon "+address);
         }
 
-        private void btnConfirm_Click(object sender, HoldingRoutedEventArgs e)
+        private void HoldingbtnConfirm(object sender, HoldingRoutedEventArgs e)
         {
          
             if ((string)btnConfirm.Content == "수정하기")

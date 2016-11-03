@@ -169,7 +169,7 @@ namespace Rasbrary.uni
                 currbook.x = x;
                 currbook.y = y;
                 DB.Insert(currbook);
-                DB.Insert(new Location { x = x, y = y, addr = DB.Conn.Table<Location>().Count()+1 });
+              
                 Function.ShowMessage("등록 완료.");
                 CoreApplication.Properties.Clear();
                 Frame.GoBack();
