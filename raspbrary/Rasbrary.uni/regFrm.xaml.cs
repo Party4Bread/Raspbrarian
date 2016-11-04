@@ -206,6 +206,7 @@ namespace Rasbrary.uni
                         btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
                         btn.Width =  Math.Round(LocationGrid.Width / (COLUM + 1));
                         btn.Holding += ItemClick;
+                        btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
                             if ((i + 1) == x && (j + 1) == y)
