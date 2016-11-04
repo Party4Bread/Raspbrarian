@@ -15,16 +15,15 @@
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="608,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="45" Text="가로 (행):" Height="63"/>
 
 
-        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,218,0,0" Width="55" Height="45" Click="button_Click" Holding="button_Click" FontSize="30" />
-        <Button x:Name="button_Copy" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,271,0,0" Width="55" Height="45" Click="button_Copy_Click" Holding="button_Copy_Click" FontSize="30"/>
-        <Button x:Name="button_Copy1" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1011,218,0,0" Height="45" Width="55" Click="button_Copy1_Click" Holding="button_Copy1_Click" FontSize="30"/>
-        <Button x:Name="button_Copy2" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1011,271,0,0" Height="45" Width="55" Click="button_Copy2_Click" Holding="button_Copy2_Click" FontSize="30"/>
-        <Button x:Name="button1" Content="적용" HorizontalAlignment="Left" Margin="99,350,0,0" VerticalAlignment="Top" Click="button1_Click" Holding="button1_Click" Height="100" Width="250" FontSize="50"/>
-        <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,701,0,-1" VerticalAlignment="Stretch" Click="button2_Click" Holding="button2_Click" Width="200" Height="100" FontSize="50"/>
+        <Button x:Name="button" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,218,0,0" Width="55" Height="45" Click="button_Click"  FontSize="30" />
+        <Button x:Name="button_Copy" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="506,271,0,0" Width="55" Height="45" Click="button_Copy_Click"  FontSize="30"/>
+        <Button x:Name="button_Copy1" Content="▲" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1011,218,0,0" Height="45" Width="55" Click="button_Copy1_Click"  FontSize="30"/>
+        <Button x:Name="button_Copy2" Content="▼" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1011,271,0,0" Height="45" Width="55" Click="button_Copy2_Click"  FontSize="30"/>
+        <Button x:Name="button1" Content="적용" HorizontalAlignment="Left" Margin="99,350,0,0" VerticalAlignment="Top" Click="button1_Click"  Height="100" Width="250" FontSize="50"/>
+        <Button x:Name="button2" Content="back" HorizontalAlignment="Left" Margin="0,701,0,-1" VerticalAlignment="Stretch" Click="button2_Click"  Width="200" Height="100" FontSize="50"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="34,36,0,0" TextWrapping="Wrap" Text="■ 책 자리표 설정" VerticalAlignment="Top" FontSize="60"/>
-        <Button x:Name="button4" Content="DB백업" HorizontalAlignment="Left" Margin="921,636,0,0" VerticalAlignment="Top" Click="button4_Click" Holding="button4_Click" Height="150" Width="350" FontSize="50"/>
-        <Button x:Name="button3" Content="DB복구" HorizontalAlignment="Left" Margin="546,637,0,0" VerticalAlignment="Top" Height="150" Width="350" FontSize="50" Click="button3_Click" Holding="button3_Click"/>
-        <Button x:Name="button5" Content="LED 위치 설정" HorizontalAlignment="Left" Margin="546,461,0,0" VerticalAlignment="Top" Height="150" Width="724" Click="button5_Click" Holding="button5_Click" FontSize="50"/>
+       
+        <Button x:Name="button5" Content="LED 위치 설정" HorizontalAlignment="Left" Margin="546,461,0,0" VerticalAlignment="Top" Height="150" Width="724" Click="button5_Click"  FontSize="50"/>
 
     </Grid>
 </Page>

@@ -20,7 +20,7 @@
             <ComboBoxItem Content="바코드"/>
         </ComboBox>
         <TextBox x:Name="textBox" HorizontalAlignment="Right" Margin="0,0,166,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="95" Width="940" FontSize="60" Background="White" />
-        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1119,0,0,0" Height="95" Width="160" Click="button_Click" Holding="button_Click" FontSize="45"/>
+        <Button x:Name="button" Content="검색" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1119,0,0,0" Height="95" Width="160" Click="button_Click"  FontSize="45"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="430" Margin="0,268,0,0" VerticalAlignment="Top" Width="960" SelectionChanged="listBox_SelectionChanged" FontSize="30"/>
         <Rectangle HorizontalAlignment="Left" Height="105" Margin="0,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="1280" Fill="#FF0869DC" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="2,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="1268" FontSize="70" SelectionChanged="textBlock_SelectionChanged" Foreground="Black">
@@ -29,9 +29,9 @@
         </TextBlock>
         <Rectangle Fill="#FF42E811" HorizontalAlignment="Left" Height="70" Margin="0,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="1280" StrokeThickness="0"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="2,203,0,0" TextWrapping="Wrap" Text="저자명:" VerticalAlignment="Top" FontSize="45" Height="60" Width="1277"/>
-        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,720,0,0" Click="button1_Click" Holding="button1_Click" Height="80" Width="150" FontSize="40"/>
+        <Button x:Name="button1" Content="back" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,720,0,0" Click="button1_Click"  Height="80" Width="150" FontSize="40"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="360" Margin="994,309,0,0" VerticalAlignment="Top" Width="250"/>
-        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="967,698,131,0" VerticalAlignment="Top" Height="90" Click="button2_Click" Holding="button2_Click" FontSize="27"/>
-        <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="1160,698,0,0" VerticalAlignment="Top" Height="90" Width="120" Click="btndel_Click" Holding="btndel_Click" FontSize="27" Foreground="#FFCD0000"/>
+        <Button x:Name="button2" Content="책 위치 보기" HorizontalAlignment="Stretch" Margin="967,698,131,0" VerticalAlignment="Top" Height="90" Click="button2_Click"  FontSize="27"/>
+        <Button x:Name="btndel" Content="책 삭제" HorizontalAlignment="Left" Margin="1160,698,0,0" VerticalAlignment="Top" Height="90" Width="120" Click="btndel_Click"  FontSize="27" Foreground="#FFCD0000"/>
     </Grid>
 </Page>

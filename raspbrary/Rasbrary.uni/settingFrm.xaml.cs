@@ -114,7 +114,7 @@ namespace Rasbrary.uni
             Frame.Navigate(typeof(mainFrm));
         }
 
-        private async void button4_Click(object sender, RoutedEventArgs e)
+        /*private async void button4_Click(object sender, RoutedEventArgs e)
         {
             var fileSavePicker = new Windows.Storage.Pickers.FileSavePicker();
             fileSavePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
@@ -166,7 +166,7 @@ namespace Rasbrary.uni
                     Function.ShowMessage("복구실패...");
                 }
             }
-        }
+        }*/
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
