@@ -27,13 +27,15 @@ namespace Rasbrary.uni
         private int _iniy;
         Button _lastButton;
         Button _originButton;
+        Arduino head = new Arduino();
         public BookLocation()
         {
             InitializeComponent();         
         }
-        private void btnexit_Click(object sender, RoutedEventArgs e)
-        {           
-            Frame.GoBack();         
+        private async void btnexit_Click(object sender, RoutedEventArgs e)
+        {
+            await head.WriteAsync("0");
+            Frame.GoBack();
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -54,10 +56,8 @@ namespace Rasbrary.uni
                 btnConfirm.Content = "수정하기";
             }
             ReadSize();
-            Arduino head = new Arduino();
-            head.connect();
-            int address = DB.FindAddress(x, y).addr;
-            await head.WriteAsync("ledon "+address);
+            await head.connect();
+            await head.WriteAsync((DB.FindAddress(x, y).addr + 22).ToString());
         }
 
         private void HoldingbtnConfirm(object sender, RoutedEventArgs e)
