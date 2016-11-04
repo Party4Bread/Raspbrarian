@@ -57,7 +57,7 @@ namespace Rasbrary.uni
             }
             ReadSize();
             await head.connect();
-            await head.WriteAsync((DB.FindAddress(x, y).addr + 22).ToString());
+            await head.WriteAsync((DB.FindAddress(x, y).addr + 21).ToString());
         }
 
         private void HoldingbtnConfirm(object sender, RoutedEventArgs e)

@@ -49,7 +49,7 @@ namespace Rasbrary.uni
                     }
                     
                 }
-                else
+                //else
                    // Function.ShowMessage("검색 조건을 선택하세요!");
             }
             else
