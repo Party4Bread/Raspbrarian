@@ -61,6 +61,7 @@ namespace Rasbrary.uni
                         btn.Height = Math.Round(LocationGrid.Height / (ROW + 1));
                         btn.Width = Math.Round(LocationGrid.Width / (COLUM + 1));
                         btn.Holding += ItemClick;
+                        btn.Click += ItemClick;
                         foreach (var message in query)
                         {
                             if ((i + 1) == message.x && (j + 1) == message.y)
@@ -81,7 +82,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
             }
         }
-        private void ItemClick(object sender, HoldingRoutedEventArgs e)
+        private void ItemClick(object sender, RoutedEventArgs e)
         {
             if (LastButton != null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));
@@ -96,7 +97,7 @@ namespace Rasbrary.uni
             LastButton = SelectedButton;
         }
 
-        private void button2_Click(object sender, HoldingRoutedEventArgs e)
+        private void button2_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }
@@ -111,7 +112,7 @@ namespace Rasbrary.uni
                     
                    
         }
-        private void ManageLED(object sender,HoldingRoutedEventArgs e)
+        private void ManageLED(object sender,RoutedEventArgs e)
         {
             int a = int.Parse(comboBox.SelectedItem.ToString());
             var query = DB.Conn.Table<Location>();

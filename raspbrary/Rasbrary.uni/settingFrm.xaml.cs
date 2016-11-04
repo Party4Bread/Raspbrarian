@@ -21,35 +21,35 @@ namespace Rasbrary.uni
         {
             this.InitializeComponent();
         }
-        private void button_Click(object sender, HoldingRoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             int a = int.Parse(textBox.Text);
             a++;
             textBox.Text = a.ToString();
         }
 
-        private void button_Copy_Click(object sender, HoldingRoutedEventArgs e)
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
             int a = int.Parse(textBox.Text);
             a--;
             textBox.Text = a.ToString();
         }
 
-        private void button_Copy1_Click(object sender, HoldingRoutedEventArgs e)
+        private void button_Copy1_Click(object sender, RoutedEventArgs e)
         {
             int a = int.Parse(textBox_Copy.Text);
             a++;
             textBox_Copy.Text = a.ToString();
         }
 
-        private void button_Copy2_Click(object sender, HoldingRoutedEventArgs e)
+        private void button_Copy2_Click(object sender, RoutedEventArgs e)
         {
             int a = int.Parse(textBox_Copy.Text);
             a--;
             textBox_Copy.Text = a.ToString();
         }
 
-        private async void button1_Click(object sender, HoldingRoutedEventArgs e)
+        private async void button1_Click(object sender, RoutedEventArgs e)
         {
             StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("prefs.xml");
             using (IRandomAccessStream writeStream = await file.OpenAsync(FileAccessMode.ReadWrite))
@@ -109,12 +109,12 @@ namespace Rasbrary.uni
             }
         }
 
-        private void button2_Click(object sender, HoldingRoutedEventArgs e)
+        private void button2_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(mainFrm));
         }
 
-        private async void button4_Click(object sender, HoldingRoutedEventArgs e)
+        private async void button4_Click(object sender, RoutedEventArgs e)
         {
             var fileSavePicker = new Windows.Storage.Pickers.FileSavePicker();
             fileSavePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
@@ -143,7 +143,7 @@ namespace Rasbrary.uni
 
         }
 
-        private async void button3_Click(object sender, HoldingRoutedEventArgs e)
+        private async void button3_Click(object sender, RoutedEventArgs e)
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
@@ -168,7 +168,7 @@ namespace Rasbrary.uni
             }
         }
 
-        private void button5_Click(object sender, HoldingRoutedEventArgs e)
+        private void button5_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ManageSlave));
         }

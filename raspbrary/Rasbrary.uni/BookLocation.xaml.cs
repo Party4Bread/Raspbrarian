@@ -31,7 +31,7 @@ namespace Rasbrary.uni
         {
             InitializeComponent();         
         }
-        private void btnexit_Click(object sender, HoldingRoutedEventArgs e)
+        private void btnexit_Click(object sender, RoutedEventArgs e)
         {           
             Frame.GoBack();         
         }
@@ -60,7 +60,7 @@ namespace Rasbrary.uni
             await head.WriteAsync("ledon "+address);
         }
 
-        private void HoldingbtnConfirm(object sender, HoldingRoutedEventArgs e)
+        private void HoldingbtnConfirm(object sender, RoutedEventArgs e)
         {
          
             if ((string)btnConfirm.Content == "수정하기")
@@ -113,6 +113,7 @@ namespace Rasbrary.uni
                         btn.Height = Math.Round(LocationGrid.Height/(ROW+1));
                         btn.Width = Math.Round(LocationGrid.Width/(COLUM+1));
                         btn.Holding += ItemClick;
+                        btn.Click += ItemClick;
                         if (PageName == "책 자리 보기")
                         {
                             if ((i + 1) == x && (j + 1) == y)
@@ -133,7 +134,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다."+"\r\n"+e.Message);
             }
         }
-        private void ItemClick(object sender, HoldingRoutedEventArgs e)
+        private void ItemClick(object sender, RoutedEventArgs e)
         {
             btnConfirm.IsEnabled = true;
             txtX.Text = "행:";

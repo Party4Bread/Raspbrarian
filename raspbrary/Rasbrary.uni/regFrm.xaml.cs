@@ -37,7 +37,7 @@ namespace Rasbrary.uni
         private int x;
         private int y;
         Button LastButton;
-        private async void btnreg_Holding(object sender, HoldingRoutedEventArgs e)
+        private async void btnreg_Holding(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -115,12 +115,12 @@ namespace Rasbrary.uni
         {
             textBox.Text = "";
         }      
-        private void button2_Click(object sender, HoldingRoutedEventArgs e)
+        private void button2_Click(object sender, RoutedEventArgs e)
         {
             CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
         }
-        private async void Confirm(object sender, HoldingRoutedEventArgs e)
+        private async void Confirm(object sender, RoutedEventArgs e)
         {
             
             //CoreApplication.Properties.Add("ISBN", textBox.Text);
@@ -226,7 +226,7 @@ namespace Rasbrary.uni
                 Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
             }
         }
-        private void ItemClick(object sender, HoldingRoutedEventArgs e)
+        private void ItemClick(object sender, RoutedEventArgs e)
         {
             if (LastButton != null)
                 LastButton.Background = new SolidColorBrush(Color.FromArgb(51, 0, 0, 0));

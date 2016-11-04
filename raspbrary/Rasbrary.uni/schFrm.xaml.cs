@@ -16,7 +16,7 @@ namespace Rasbrary.uni
            InitializeComponent();
         }
         System.Collections.Generic.List<Book> currentlist = new System.Collections.Generic.List<Book>();
-        private void button_Click(object sender, HoldingRoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             if (textBox.Text != "")
             {
@@ -69,7 +69,7 @@ namespace Rasbrary.uni
 
         }
 
-        private void button1_Click(object sender, HoldingRoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e)
         {
             CoreApplication.Properties.Clear();
             Frame.Navigate(typeof(mainFrm));
@@ -101,7 +101,7 @@ namespace Rasbrary.uni
             }
         }     
 
-        private void button2_Click(object sender, HoldingRoutedEventArgs e)
+        private void button2_Click(object sender, RoutedEventArgs e)
         {
             if (listBox.SelectedIndex != -1)
             {
@@ -181,7 +181,7 @@ namespace Rasbrary.uni
             }
         }
 
-        private void btndel_Click(object sender, HoldingRoutedEventArgs e)
+        private void btndel_Click(object sender, RoutedEventArgs e)
         {
             if (listBox.SelectedIndex != -1)
             {
