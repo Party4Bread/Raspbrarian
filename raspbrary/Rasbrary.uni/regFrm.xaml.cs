@@ -126,23 +126,24 @@ namespace Rasbrary.uni
             //CoreApplication.Properties.Add("ISBN", textBox.Text);
             if (textBox1.Text != "" || textBox2.Text != ""||textBox3.Text!="")
             {
-                Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=_book[3]});
-                var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
-                dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(Checkresponse)));
-                dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(Checkresponse)));
-                await dialog.ShowAsync();
+                /*  Data.SetBook(new Book { Name = textBox1.Text, Auther = textBox2.Text,Publisher=textBox3.Text,ISBN=textBox.Text,image=_book[3]});
+                  var dialog = new MessageDialog("제목:" + textBox1.Text + "\r\n" + "저자:" + textBox2.Text + "\r\n" + "출판사:" + textBox3.Text, "책 정보 확인");
+                  dialog.Commands.Add(new UICommand("확인", new UICommandInvokedHandler(Checkresponse)));
+                  dialog.Commands.Add(new UICommand("취소", new UICommandInvokedHandler(Checkresponse)));
+                  await dialog.ShowAsync();*/
+                SetLocation();
             }
             else
             {
+
+                /*
                 Function.ShowMessage("책 정보가 확인되지 않습니다.");
+                */
             }
         }
         private void Checkresponse(IUICommand command)
         {
-            if (command.Label == "확인")
-            {
-                SetLocation();             
-            }
+  
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)

@@ -50,11 +50,11 @@ namespace Rasbrary.uni
                     
                 }
                 else
-                    Function.ShowMessage("검색 조건을 선택하세요!");
+                   // Function.ShowMessage("검색 조건을 선택하세요!");
             }
             else
             { 
-                Function.ShowMessage("키워드를 입력하세요.\r\n전체 목록을 표시합니다.");
+                //Function.ShowMessage("키워드를 입력하세요.\r\n전체 목록을 표시합니다.");
                 var query = DB.Conn.Table<Book>();
                 foreach (var item in query)
                 {

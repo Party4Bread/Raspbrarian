@@ -79,7 +79,7 @@ namespace Rasbrary.uni
             }
             catch (Exception e)
             {
-                Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
+               // Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다." + "\r\n" + e.Message);
             }
         }
         private void ItemClick(object sender, RoutedEventArgs e)

@@ -78,12 +78,12 @@ namespace Rasbrary.uni
                 currbook.y = y;
                 DB.Insert(currbook);
               
-                Function.ShowMessage("수정 완료.");
+               // Function.ShowMessage("수정 완료.");
                 Page_Loaded(null, null);
             }
             else
             {
-                Function.ShowMessage("자리에 책이 이미 있습니다.\r\n다시 지정해 주세요.");
+               // Function.ShowMessage("자리에 책이 이미 있습니다.\r\n다시 지정해 주세요.");
             }
         }
 
@@ -131,7 +131,7 @@ namespace Rasbrary.uni
             }
             catch(Exception e)
             {
-                Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다."+"\r\n"+e.Message);
+                //Function.ShowMessage("자리표를 불러오는 중 오류가 발생했습니다."+"\r\n"+e.Message);
             }
         }
         private void ItemClick(object sender, RoutedEventArgs e)

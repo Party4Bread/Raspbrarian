@@ -66,7 +66,7 @@ namespace Rasbrary.uni
                     await writer.FlushAsync();
                 }
             }
-            Function.ShowMessage("변경 완료!");
+          //  Function.ShowMessage("변경 완료!");
         }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
